@@ -1,2 +1,2 @@
-URL,userName,passwordng,insurance,fromeDate,toDate
-http://79.175.176.91:8015,0257794328,RGF3MFw,بانك كشاورزی,1401/02/04,1401/02/04
+URL,userName,passwordng,contractName,contractTariff,contractName2,contractTariff2,contractName3,contractTariff3
+http://79.175.176.91:8015,0257794328,RGF3MFw,وزارت دفاع,دولت,دی,آزا,آموزش و پرورش	,دولت
