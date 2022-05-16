@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import cis.cispackage.element_Highlight;
@@ -70,10 +71,10 @@ public class PageObject_Takhsis_Insurance {
 
 
 	  
-	    @FindBy(xpath="(//tbody/tr/td[2]/following::input)[2]")
+	    @FindBy(xpath="(//tbody/tr[1]/td[2]/following::input)[2]")
 	  WebElement TR1TD1ContractCheckbox;
 	  
-	    @FindBy(xpath="(//tbody/tr[2]/td[2]/following::input)[2]")
+	    @FindBy(xpath="(//tbody/tr[1]/td[2]/following::input)[3]")
 	  WebElement TR2TD1ContractCheckbox;
 	  
 	  //لیست  قراردادهای تخصیص داده شده
@@ -266,12 +267,16 @@ public class PageObject_Takhsis_Insurance {
 		   Thread.sleep(1000);
 
 		     WebElement Tr1TD1= driver.findElement(By.xpath("(//tbody)[1]/tr/td[1]"));
+		     ExpectedConditions.elementToBeClickable(Tr1TD1);
 
 	  	       		    action
 		   .click(Tr1TD1).perform();
 		   Thread.sleep(1000);
 		   
 		   // انتخاب قرارداد
+		     WebElement TR2TD1ContractCheckbox= driver.findElement(By.xpath("(//tbody)[2]/tr[1]/td[2]/following::input[2]"));
+		     ExpectedConditions.elementToBeClickable(TR2TD1ContractCheckbox);
+		     
 		   action
 		   .click(TR2TD1ContractCheckbox).perform();
 		   		   Thread.sleep(1000);
@@ -301,13 +306,26 @@ public class PageObject_Takhsis_Insurance {
 			       
 		   		   action
 		   		 .click(Sabt).perform();
-		   		   Thread.sleep(1500);
+		   		   Thread.sleep(1000);
 		   		   
 				   WebElement POPUP =driver.findElement(By.xpath("//div[@role='alertdialog']"));
 				   Thread.sleep(500);
 				   String c=POPUP.getText();
 			       Assert.assertTrue(c.contains("موفقیت"));
+		 		    eh.highlightElement(driver,POPUP); 
 				   Thread.sleep(500);
+				   
+				  action
+				  .click()
+				  .sendKeys(Keys.PAGE_DOWN).perform();
+				   Thread.sleep(500);
+				   
+				   WebElement Tr1Td3 =driver.findElement(By.xpath("(//tbody)[3]/tr/td[3]"));
+				   String contractAdded=Tr1Td3.getText();
+
+				   Assert.assertEquals(contractAdded, contract);
+		 		    eh.highlightElement(driver,Tr1Td3); 
+
 
 }
 }

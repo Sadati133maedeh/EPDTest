@@ -363,7 +363,33 @@ public class DataProviders {
 	}
 
 
+	@DataProvider(name = "EditInsuranceContract")
+	public Iterator<Object[]>EditInsuranceContract () throws IOException{
+		CSVReader reader = new CSVReader(
+				new FileReader("./src/test/resources/data/CSVFiles_GV/EditInsuranceContract.csv"),',','\'',1);
+		List<Object[]> myEntries = new ArrayList<Object[]>();
+		String[] nextLine;
+		while ((nextLine=reader.readNext())!=null) {
+			myEntries.add(nextLine);
+		}
+		reader.close();
+		return myEntries.iterator();
 
+	}
+
+	@DataProvider(name = "AddeInsuranceAllocation")
+	public Iterator<Object[]>AddeInsuranceAllocation () throws IOException{
+		CSVReader reader = new CSVReader(
+				new FileReader("./src/test/resources/data/CSVFiles_GV/AddeInsuranceAllocation.csv"),',','\'',1);
+		List<Object[]> myEntries = new ArrayList<Object[]>();
+		String[] nextLine;
+		while ((nextLine=reader.readNext())!=null) {
+			myEntries.add(nextLine);
+		}
+		reader.close();
+		return myEntries.iterator();
+
+	}
 
 
 

@@ -79,7 +79,6 @@ public class PageObject_contract_type {
 		   .perform();
 		   Thread.sleep(1000);
 		   action
-		   .click(Refresh)
 		   .click(ContracteName)
 		   .sendKeys(contractName2)
 		   .click(ContractTariff).perform();
@@ -95,7 +94,6 @@ public class PageObject_contract_type {
 		   .perform();
 		   Thread.sleep(1000);
 		   action
-		   .click(Refresh)
 		   .click(ContracteName)
 		   .sendKeys(contractName3)
 		   .click(ContractTariff).perform();
@@ -109,6 +107,15 @@ public class PageObject_contract_type {
 		   action
 		   .click(AddButton)
 		   .perform();
+  		   Thread.sleep(1000);
+
+
+		   WebElement POPUP =driver.findElement(By.xpath("//div[@role='alertdialog']"));
+		   Thread.sleep(500);
+		   String c2=POPUP.getText();
+	       Assert.assertTrue(c2.contains("موفقیت"));
+           eh.highlightElement(driver,POPUP); 
+
 
 	}
 	   public void Edit_Contract_Name( WebDriver driver ,String NewContract ,String tariff2) throws InterruptedException {
