@@ -5,14 +5,12 @@ import org.testng.annotations.Test;
 import GV.Package.element_Highlight;
 import GV.Package.DataProviders;
 import GV.PageObject.PageObgectLogin;
-import GV.PageObject.PageObject_DefinitionCenterParts;
+import GV.PageObject.PageObject_Global_Services_Peyvand;
 import GV.PageObject.PageObject_Landing;
 import GV.PageObject.PageObject_MainMenu;
-import GV.PageObject.PageObject_Takhsis_Insurance;
+import GV.PageObject.PageObject_contract_type;
 import GV.PageObject.PageObject_license;
-import GV.PageObject.PageObject_riali_K_tariff;
 import GV.PageObject.PageObject_speciality;
-import GV.PageObject.PageObject_tariff_type;
 
 import org.testng.annotations.BeforeMethod;
 import java.util.concurrent.TimeUnit;
@@ -27,12 +25,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
-public class TestCase_TakhsisInsurance_Add {
+public class TestCase_AddGlobalService {
       WebDriver driver;
       
       
-  @Test(dataProvider="AddeInsuranceAllocation",dataProviderClass=DataProviders.class)
-  public void f(String URL ,String UserName ,String Password,String insurance, String fromeDate , String toDate,String insurance2, String fromeDate2 , String toDate2) throws Throwable {
+  @Test(dataProvider="",dataProviderClass=DataProviders.class)
+  public void f(String URL ,String UserName ,String Password,String globalName ,String globalCode ,String kJarahi ,String kBihooshi,String degree1 ,String degree2,String degree3,String degree4,String fromdate) throws Throwable {
 	 
 	  driver.navigate().to(URL);
 	  driver.manage().window().maximize();
@@ -54,15 +52,17 @@ public class TestCase_TakhsisInsurance_Add {
 	  for(String window : driver.getWindowHandles() ) {
 		  driver.switchTo().window(window);
 	  }
-	  //Enter to TakhsisInsurance  Page
-	  PageObject_MainMenu k=PageFactory.initElements(driver, PageObject_MainMenu.class);
-	  k.InsuranceAllocation_Icon(driver);
-	  driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);  
+	  //Enter to Global Service Page
+	  PageObject_MainMenu basic=PageFactory.initElements(driver, PageObject_MainMenu.class);
+	  basic.GlobalServices_Icon(driver);
+	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  
 
-	  //Add 
-	  PageObject_Takhsis_Insurance Add=PageFactory.initElements(driver, PageObject_Takhsis_Insurance.class);
-	  Add.AddeInsuranceAllocation(driver, insurance, fromeDate, toDate, insurance2, fromeDate2, toDate2);
-	  driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);  
+	  //Add Global Service
+	  PageObject_Global_Services_Peyvand Add=PageFactory.initElements(driver, PageObject_Global_Services_Peyvand.class);
+	  Add.AddGlobalService(driver, globalName, globalCode, kJarahi, kBihooshi, degree1, degree2, degree3, degree4, fromdate);
+	  
+	  
+	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  
 
 	  
 

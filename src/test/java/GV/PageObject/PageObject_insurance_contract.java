@@ -107,6 +107,7 @@ public class PageObject_insurance_contract {
 		   action
 		   .click(ChooseContract).perform();
 		   Thread.sleep(1000);
+
 		   
 
 		   
@@ -637,4 +638,140 @@ public class PageObject_insurance_contract {
 		  	   	  	  		   
 		  	  		   
 }
+		  	   
+		  	   public void AddInsuranceContract_Repetitious ( WebDriver driver ,String Contract ,String model ,String herfeyiPatientShear ,String herfeyiInsurShear, String herfeyiFeranshiz, String technicalPatientShear,String technicalInsurShare, String technicalFeranshiz, String tariff, String patientDiference, String insurDiference,String exteraKInsurShare,String extraKFranshiz,String drugInsurShare,String drugFranshizShare) throws InterruptedException {
+				   Actions action = new Actions(driver);
+				   
+				   action
+				   .click(Pluse).perform();
+				   Thread.sleep(1000);
+				   
+				   
+				   action
+				   .click(ChooseContract).perform();
+				   Thread.sleep(1000);
+				   
+				   action
+				   .sendKeys(Keys.DOWN).perform();		   Thread.sleep(1000);
+
+				   
+				   action
+				   .sendKeys(Keys.ENTER).perform();
+				   Thread.sleep(1000);
+				   
+				   System.out.println("samane");
+				   
+				   action.sendKeys(Keys.TAB).perform();
+				   action
+				   .click(ChooseModel).perform();
+				   Thread.sleep(1000);
+				   
+				   System.out.println("samane");
+
+				   
+				   action
+				   .sendKeys(model).perform();
+		   		   Thread.sleep(500);
+				   action
+				   .sendKeys(Keys.ENTER).perform();
+				   		   Thread.sleep(500);
+				   		   
+				   System.out.println("samane");
+
+				   action
+				   .click(StartDate).perform();
+				   		   Thread.sleep(1000);
+
+				   
+				   		   WebElement OpenYear= driver.findElement(By.xpath("//button[@cdkarialive='polite']"));
+				   
+				  action
+				  .click(OpenYear).perform();
+				  		   Thread.sleep(2000);
+
+				  
+				  		    WebElement ChoosePeresentYear= driver.findElement(By.xpath("//tbody/tr[3]/td[2]/div[text()]"));
+				   action
+				  .click(ChoosePeresentYear).perform();
+				  		   Thread.sleep(2000);
+
+			    
+			    		      WebElement ChooseMonth= driver.findElement(By.xpath("//tbody/tr[2]/td[2]/div[text()]"));
+
+			      action
+			      .moveToElement(ChooseMonth).perform();
+		 		   Thread.sleep(1000);
+		           action
+				  .click(ChooseMonth).perform();
+				  		   Thread.sleep(2000);
+
+				  
+				  	    	  WebElement ChooseDay= driver.findElement(By.xpath("//tbody/tr[3]/td[2]/div[text()]"));
+
+			      action
+				  .click(ChooseDay).perform();
+				  		   Thread.sleep(2000);
+				  		   
+				  action
+				  .click(HerfeyiPatientShear)
+				  .sendKeys(herfeyiPatientShear)
+				  .click(HerfeyiInsurShear)
+				  .sendKeys(herfeyiInsurShear)
+				  .click(HerfeyiFeranshiz)
+				  .sendKeys(herfeyiFeranshiz).perform();
+				  		   Thread.sleep(1000);
+
+				  action
+				  .click(TechnicalPatientShear)
+				  .sendKeys(technicalPatientShear)
+				  .click(TechnicalInsurShare)
+				  .sendKeys(technicalInsurShare)
+				  .click(TechnicalFeranshiz)
+				  .sendKeys(technicalFeranshiz).perform();
+				  		   Thread.sleep(1000);
+				  		   
+
+				   action
+				  .click(CheckboxActiveDiference).perform();
+				  		  		   Thread.sleep(500);
+				  	action
+				  	.click(DiferenceTariffType).perform();
+				  		  		   Thread.sleep(500);
+				  	action
+				  	.sendKeys(tariff)
+				  	.sendKeys(Keys.ENTER).perform();
+				  			  	  Thread.sleep(500);
+				  	action
+				  	.click(PatientDiference)
+				  	.sendKeys(patientDiference)
+				  	.click(InsurDiference)
+				  	.sendKeys(insurDiference).perform();
+				  		   Thread.sleep(1000);
+
+				   	action
+				  	.click(ExteraKInsurShare)
+				  	.sendKeys(exteraKInsurShare)
+				  	.click(ExtraKFranshiz)
+				  	.sendKeys(extraKFranshiz).perform();
+				  		   Thread.sleep(1000);
+
+				   	action
+				  	.click(DrugInsurShare)
+				  	.sendKeys(drugInsurShare)
+				  	.click(DrugFranshizShare)
+				  	.sendKeys(drugFranshizShare).perform();
+				  		   Thread.sleep(1000);
+				  		   
+				  	action
+				  	.click(AddButton).perform();
+			  		   Thread.sleep(500);
+
+
+					   WebElement POPUP =driver.findElement(By.xpath("//div[@role='alertdialog']"));
+					   Thread.sleep(500);
+					   String c=POPUP.getText();
+				       Assert.assertTrue(c.contains("موجود"));
+		               eh.highlightElement(driver,POPUP); 
+
+		  	   }
 }
