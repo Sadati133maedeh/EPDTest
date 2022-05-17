@@ -19,14 +19,14 @@ public class PageObject_Takhsis_Insurance {
 	  @FindBy(xpath="//button[@data-toggle='collapse']")
 	   WebElement Collapse;
 	   
-	   	  @FindBy(xpath="//button[@mattooltip='ذخیره']")
+	   	  @FindBy(xpath="//button[@mattooltip='Ø°Ø®ÛŒØ±Ù‡']")
 	   WebElement Save;
 
 
-//لیست بیمه و و صندوق
+//Ù„ÛŒØ³Øª Ø¨ÛŒÙ…Ù‡ Ùˆ Ùˆ ØµÙ†Ø¯ÙˆÙ‚
 
 
-	  @FindBy(xpath="(//button[@mattooltip='بارگذاری مجدد'])[1]")
+	  @FindBy(xpath="(//button[@mattooltip='Ø¨Ø§Ø±Ú¯Ø°Ø§Ø±ÛŒ Ù…Ø¬Ø¯Ø¯'])[1]")
 	   WebElement RefreshInsuranceList;
 	  
 	  @FindBy(xpath="(//button[@type='submit'])[1]")
@@ -41,9 +41,9 @@ public class PageObject_Takhsis_Insurance {
 	  	  @FindBy(xpath="(//tbody/tr/td)[1]")
 	  WebElement TR1TD1Insurance;
 	  
-	  //لیست قرارداد
+	  //Ù„ÛŒØ³Øª Ù‚Ø±Ø§Ø±Ø¯Ø§Ø¯
 	  
-	  	  @FindBy(xpath="(//button[@mattooltip='بارگذاری مجدد'])[2]")
+	  	  @FindBy(xpath="(//button[@mattooltip='Ø¨Ø§Ø±Ú¯Ø°Ø§Ø±ÛŒ Ù…Ø¬Ø¯Ø¯'])[2]")
 	   WebElement RefreshContractList;
 	  
 	  @FindBy(xpath="(//button[@type='submit'])[2]")
@@ -76,12 +76,12 @@ public class PageObject_Takhsis_Insurance {
 	    @FindBy(xpath="(//tbody/tr[2]/td[2]/following::input)[2]")
 	  WebElement TR2TD1ContractCheckbox;
 	  
-	  //لیست  قراردادهای تخصیص داده شده
+	  //Ù„ÛŒØ³Øª  Ù‚Ø±Ø§Ø±Ø¯Ø§Ø¯Ù‡Ø§ÛŒ ØªØ®ØµÛŒØµ Ø¯Ø§Ø¯Ù‡ Ø´Ø¯Ù‡
 	  
 	  	  	  @FindBy(xpath="//input[@formcontrolname='InsuranceName3']")
 	  WebElement InputSearchInsuranceList2;
 
-	  	  @FindBy(xpath="(//button[@mattooltip='بارگذاری مجدد'])[3]")
+	  	  @FindBy(xpath="(//button[@mattooltip='Ø¨Ø§Ø±Ú¯Ø°Ø§Ø±ÛŒ Ù…Ø¬Ø¯Ø¯'])[3]")
 	   WebElement RefreshContractList2;
 	  
 	  @FindBy(xpath="(//button[@type='submit'])[3]")
@@ -110,7 +110,7 @@ public class PageObject_Takhsis_Insurance {
 		   		   Thread.sleep(1000);
 
 		   
-		   //سرچ بیمه اول
+		   //Ø³Ø±Ú† Ø¨ÛŒÙ…Ù‡ Ø§ÙˆÙ„
 		   WebElement Tr3= driver.findElement(By.xpath("(//tbody/tr[3]/td)[1]"));
 		   
 		   
@@ -129,9 +129,9 @@ public class PageObject_Takhsis_Insurance {
 
 		        Assert.assertEquals(tr1 , tr3);
  		      eh.highlightElement(driver,Tr1); 
- 		      		    Thread.sleep(1000);
+ 		      		    Thread.sleep(2000);
 
- 		 //رفرش لیست
+ 		 //Ø±Ù�Ø±Ø´ Ù„ÛŒØ³Øª
  		 
  		 action
  		 .click(RefreshInsuranceList)
@@ -140,7 +140,7 @@ public class PageObject_Takhsis_Insurance {
 
  		      
  		      
- 		 //سرچ  بیمه دوم
+ 		 //Ø³Ø±Ú†  Ø¨ÛŒÙ…Ù‡ Ø¯ÙˆÙ…
  		 
  		 		   WebElement Tr5= driver.findElement(By.xpath("(//tbody/tr[5]/td)[1]"));
 
@@ -176,7 +176,7 @@ public class PageObject_Takhsis_Insurance {
 		   		   Thread.sleep(1000);
 
 		   
-		   //سرچ قرارداد بر اساس مدل
+		   //Ø³Ø±Ú† Ù‚Ø±Ø§Ø±Ø¯Ø§Ø¯ Ø¨Ø± Ø§Ø³Ø§Ø³ Ù…Ø¯Ù„
 		   
 		   WebElement Tr1TD3= driver.findElement(By.xpath("(//tbody)[2]/tr/td[3]"));
 		   
@@ -204,9 +204,9 @@ public class PageObject_Takhsis_Insurance {
 
 		        Assert.assertEquals(tr1td3_2 , tr1td3);
  		      eh.highlightElement(driver,Tr1TD3_2); 
- 		      		    Thread.sleep(1000);
+ 		      		    Thread.sleep(2000);
  		      		    
-//رفرش لیست
+//Ø±Ù�Ø±Ø´ Ù„ÛŒØ³Øª
  		 
  		 action
  		 .click(RefreshContractList)
@@ -215,7 +215,7 @@ public class PageObject_Takhsis_Insurance {
 
  		      		    
  		      		    
-    // سرچ بر اساس تعرفه
+    // Ø³Ø±Ú† Ø¨Ø± Ø§Ø³Ø§Ø³ ØªØ¹Ø±Ù�Ù‡
     
     		   WebElement Tr2TD2= driver.findElement(By.xpath("(//tbody)[2]/tr[2]/td[2]"));
 		   
@@ -256,7 +256,7 @@ public class PageObject_Takhsis_Insurance {
 	  	       		    action
 		   .click(Collapse).perform();
 		   		   Thread.sleep(1000);
-		   	//انتخاب بیمه	   
+		   	//Ø§Ù†ØªØ®Ø§Ø¨ Ø¨ÛŒÙ…Ù‡	   
 		   		   
 		   	  action
 		   .click(InputSearchInsuranceList)
@@ -271,7 +271,7 @@ public class PageObject_Takhsis_Insurance {
 		   .click(Tr1TD1).perform();
 		   Thread.sleep(1000);
 		   
-		   // انتخاب قرارداد
+		   // Ø§Ù†ØªØ®Ø§Ø¨ Ù‚Ø±Ø§Ø±Ø¯Ø§Ø¯
 		   action
 		   .click(TR2TD1ContractCheckbox).perform();
 		   		   Thread.sleep(1000);
@@ -281,7 +281,7 @@ public class PageObject_Takhsis_Insurance {
 		   		   action
 		   		 .click(Save).perform();
 		   		   Thread.sleep(1500);
-		   	//درج تاریخ	   
+		   	//Ø¯Ø±Ø¬ ØªØ§Ø±ÛŒØ®	   
 		   		   
 			       WebElement FromeDate= driver.findElement(By.xpath("//input[@name='fromDate']"));
 			       
@@ -297,7 +297,7 @@ public class PageObject_Takhsis_Insurance {
 			       		   .sendKeys(toDate).perform();
 		   		   Thread.sleep(1000);
 		   		   
-			       WebElement Sabt= driver.findElement(By.xpath("//button[text()='ثبت']"));
+			       WebElement Sabt= driver.findElement(By.xpath("//button[text()='Ø«Ø¨Øª']"));
 			       
 		   		   action
 		   		 .click(Sabt).perform();
@@ -306,7 +306,7 @@ public class PageObject_Takhsis_Insurance {
 				   WebElement POPUP =driver.findElement(By.xpath("//div[@role='alertdialog']"));
 				   Thread.sleep(500);
 				   String c=POPUP.getText();
-			       Assert.assertTrue(c.contains("موفقیت"));
+			       Assert.assertTrue(c.contains("Ù…ÙˆÙ�Ù‚ÛŒØª"));
 				   Thread.sleep(500);
 
 }
