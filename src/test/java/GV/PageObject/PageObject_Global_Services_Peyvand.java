@@ -13,7 +13,7 @@ import org.testng.Assert;
 
 import cis.cispackage.element_Highlight;
 
-public class PageObject_Global_Services_Peyvand_ {
+public class PageObject_Global_Services_Peyvand {
 
 	  element_Highlight eh= new element_Highlight();
 
