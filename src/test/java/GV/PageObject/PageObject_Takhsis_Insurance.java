@@ -20,14 +20,14 @@ public class PageObject_Takhsis_Insurance {
 	  @FindBy(xpath="//button[@data-toggle='collapse']")
 	   WebElement Collapse;
 	   
-	   	  @FindBy(xpath="//button[@mattooltip='Ø°Ø®ÛŒØ±Ù‡']")
+	   	  @FindBy(xpath="//button[@mattooltip='ذخیره']")
 	   WebElement Save;
 
 
-//Ù„ÛŒØ³Øª Ø¨ÛŒÙ…Ù‡ Ùˆ Ùˆ ØµÙ†Ø¯ÙˆÙ‚
+	   	//لیست بیمه و و صندوق
 
 
-	  @FindBy(xpath="(//button[@mattooltip='Ø¨Ø§Ø±Ú¯Ø°Ø§Ø±ÛŒ Ù…Ø¬Ø¯Ø¯'])[1]")
+	  @FindBy(xpath="(//button[@mattooltip='بارگذاری مجدد'])[1]")
 	   WebElement RefreshInsuranceList;
 	  
 	  @FindBy(xpath="(//button[@type='submit'])[1]")
@@ -44,7 +44,7 @@ public class PageObject_Takhsis_Insurance {
 	  
 	  //Ù„ÛŒØ³Øª Ù‚Ø±Ø§Ø±Ø¯Ø§Ø¯
 	  
-	  	  @FindBy(xpath="(//button[@mattooltip='Ø¨Ø§Ø±Ú¯Ø°Ø§Ø±ÛŒ Ù…Ø¬Ø¯Ø¯'])[2]")
+	  	  @FindBy(xpath="(//button[@mattooltip='بارگذاری مجدد'])[2]")
 	   WebElement RefreshContractList;
 	  
 	  @FindBy(xpath="(//button[@type='submit'])[2]")
@@ -77,12 +77,12 @@ public class PageObject_Takhsis_Insurance {
 	    @FindBy(xpath="(//tbody/tr[1]/td[2]/following::input)[3]")
 	  WebElement TR2TD1ContractCheckbox;
 	  
-	  //Ù„ÛŒØ³Øª  Ù‚Ø±Ø§Ø±Ø¯Ø§Ø¯Ù‡Ø§ÛŒ ØªØ®ØµÛŒØµ Ø¯Ø§Ø¯Ù‡ Ø´Ø¯Ù‡
+		  //لیست  قراردادهای تخصیص داده شده
 	  
 	  	  	  @FindBy(xpath="//input[@formcontrolname='InsuranceName3']")
 	  WebElement InputSearchInsuranceList2;
 
-	  	  @FindBy(xpath="(//button[@mattooltip='Ø¨Ø§Ø±Ú¯Ø°Ø§Ø±ÛŒ Ù…Ø¬Ø¯Ø¯'])[3]")
+	  	  @FindBy(xpath="(//button[@mattooltip='بارگذاری مجدد'])[3]")
 	   WebElement RefreshContractList2;
 	  
 	  @FindBy(xpath="(//button[@type='submit'])[3]")
@@ -111,7 +111,7 @@ public class PageObject_Takhsis_Insurance {
 		   		   Thread.sleep(1000);
 
 		   
-		   //Ø³Ø±Ú† Ø¨ÛŒÙ…Ù‡ Ø§ÙˆÙ„
+				   //سرچ بیمه اول
 		   WebElement Tr3= driver.findElement(By.xpath("(//tbody/tr[3]/td)[1]"));
 		   
 		   
@@ -132,7 +132,7 @@ public class PageObject_Takhsis_Insurance {
  		      eh.highlightElement(driver,Tr1); 
  		      		    Thread.sleep(2000);
 
- 		 //Ø±Ù�Ø±Ø´ Ù„ÛŒØ³Øª
+ 		       		 //رفرش لیست
  		 
  		 action
  		 .click(RefreshInsuranceList)
@@ -141,7 +141,7 @@ public class PageObject_Takhsis_Insurance {
 
  		      
  		      
- 		 //Ø³Ø±Ú†  Ø¨ÛŒÙ…Ù‡ Ø¯ÙˆÙ…
+	 		 //سرچ  بیمه دوم
  		 
  		 		   WebElement Tr5= driver.findElement(By.xpath("(//tbody/tr[5]/td)[1]"));
 
@@ -177,7 +177,7 @@ public class PageObject_Takhsis_Insurance {
 		   		   Thread.sleep(1000);
 
 		   
-		   //Ø³Ø±Ú† Ù‚Ø±Ø§Ø±Ø¯Ø§Ø¯ Ø¨Ø± Ø§Ø³Ø§Ø³ Ù…Ø¯Ù„
+				   //سرچ قرارداد بر اساس مدل
 		   
 		   WebElement Tr1TD3= driver.findElement(By.xpath("(//tbody)[2]/tr/td[3]"));
 		   
@@ -207,7 +207,7 @@ public class PageObject_Takhsis_Insurance {
  		      eh.highlightElement(driver,Tr1TD3_2); 
  		      		    Thread.sleep(2000);
  		      		    
-//Ø±Ù�Ø±Ø´ Ù„ÛŒØ³Øª
+ 		      		//رفرش لیست
  		 
  		 action
  		 .click(RefreshContractList)
@@ -216,7 +216,7 @@ public class PageObject_Takhsis_Insurance {
 
  		      		    
  		      		    
-    // Ø³Ø±Ú† Ø¨Ø± Ø§Ø³Ø§Ø³ ØªØ¹Ø±Ù�Ù‡
+		    // سرچ بر اساس تعرفه
     
     		   WebElement Tr2TD2= driver.findElement(By.xpath("(//tbody)[2]/tr[2]/td[2]"));
 		   
@@ -250,14 +250,14 @@ public class PageObject_Takhsis_Insurance {
 
 }
 
-	  	   public void AddeInsuranceAllocation ( WebDriver driver ,String insurance, String fromeDate , String toDate) throws InterruptedException {
+	  	   public void AddeInsuranceAllocation ( WebDriver driver ,String insurance, String fromeDate , String toDate ,String insurance2, String fromeDate2 , String toDate2) throws InterruptedException {
 	  	       
 	  	       		   Actions action = new Actions(driver);
 
 	  	       		    action
 		   .click(Collapse).perform();
 		   		   Thread.sleep(1000);
-		   	//Ø§Ù†ØªØ®Ø§Ø¨ Ø¨ÛŒÙ…Ù‡	   
+	  	//انتخاب بیمه	   
 		   		   
 		   	  action
 		   .click(InputSearchInsuranceList)
@@ -273,14 +273,10 @@ public class PageObject_Takhsis_Insurance {
 		   .click(Tr1TD1).perform();
 		   Thread.sleep(1000);
 		   
-<<<<<<< HEAD
-		   // Ø§Ù†ØªØ®Ø§Ø¨ Ù‚Ø±Ø§Ø±Ø¯Ø§Ø¯
-=======
 		   // انتخاب قرارداد
 		     WebElement TR2TD1ContractCheckbox= driver.findElement(By.xpath("(//tbody)[2]/tr[1]/td[2]/following::input[2]"));
 		     ExpectedConditions.elementToBeClickable(TR2TD1ContractCheckbox);
 		     
->>>>>>> 14f1c150cebee38582e2ee680eab071377baacf2
 		   action
 		   .click(TR2TD1ContractCheckbox).perform();
 		   		   Thread.sleep(1000);
@@ -290,7 +286,7 @@ public class PageObject_Takhsis_Insurance {
 		   		   action
 		   		 .click(Save).perform();
 		   		   Thread.sleep(1500);
-		   	//Ø¯Ø±Ø¬ ØªØ§Ø±ÛŒØ®	   
+				   	//درج تاریخ	   
 		   		   
 			       WebElement FromeDate= driver.findElement(By.xpath("//input[@name='fromDate']"));
 			       
@@ -306,7 +302,7 @@ public class PageObject_Takhsis_Insurance {
 			       		   .sendKeys(toDate).perform();
 		   		   Thread.sleep(1000);
 		   		   
-			       WebElement Sabt= driver.findElement(By.xpath("//button[text()='Ø«Ø¨Øª']"));
+			       WebElement Sabt= driver.findElement(By.xpath("//button[text()='ثبت']"));
 			       
 		   		   action
 		   		 .click(Sabt).perform();
@@ -315,12 +311,8 @@ public class PageObject_Takhsis_Insurance {
 				   WebElement POPUP =driver.findElement(By.xpath("//div[@role='alertdialog']"));
 				   Thread.sleep(500);
 				   String c=POPUP.getText();
-<<<<<<< HEAD
-			       Assert.assertTrue(c.contains("Ù…ÙˆÙ�Ù‚ÛŒØª"));
-=======
 			       Assert.assertTrue(c.contains("موفقیت"));
 		 		    eh.highlightElement(driver,POPUP); 
->>>>>>> 14f1c150cebee38582e2ee680eab071377baacf2
 				   Thread.sleep(500);
 				   
 				  action
@@ -333,7 +325,164 @@ public class PageObject_Takhsis_Insurance {
 
 				   Assert.assertEquals(contractAdded, contract);
 		 		    eh.highlightElement(driver,Tr1Td3); 
+		 		    
+		 		    //رفرش لیست بیمه و صندوق
+		 		    
+		 		    action
+		 		    .click(RefreshInsuranceList).perform(); 				   Thread.sleep(500);
+		 		    
+		 		  	//انتخاب بیمه	 دوم
+			   		   
+				   	  action
+				   .click(InputSearchInsuranceList)
+				   .sendKeys(insurance2)
+				   .click(SearchInsuranceList)
+				   .perform();
+				   Thread.sleep(1000);
+
+				     WebElement Tr1TD1_2= driver.findElement(By.xpath("(//tbody)[1]/tr/td[1]"));
+				     ExpectedConditions.elementToBeClickable(Tr1TD1_2);
+
+			  	       		    action
+				   .click(Tr1TD1_2).perform();
+				   Thread.sleep(1000);
+
+				   // انتخاب قرارداد دوم
+				     WebElement TR1TD1ContractCheckbox= driver.findElement(By.xpath("(//tbody)[2]/tr[1]/td[2]/following::input[1]"));
+				     ExpectedConditions.elementToBeClickable(TR1TD1ContractCheckbox);
+				     
+				   action
+				   .click(TR1TD1ContractCheckbox).perform();
+				   		   Thread.sleep(1000);
+				   		   
+				   		   String contract2=TR1TD1Contract.getText();
+				   		   
+				   		   action
+				   		 .click(Save).perform();
+				   		   Thread.sleep(1500);
+
+						   	//درج تاریخ	   
+				   		   
+					       WebElement FromeDate2= driver.findElement(By.xpath("//input[@name='fromDate']"));
+					       
+					       action
+					       .click(FromeDate2)
+					       		   .sendKeys(fromeDate2).perform();
+				   		   Thread.sleep(1000);
+				   		   
+					       WebElement ToDate2= driver.findElement(By.xpath("//input[@name='toDate']"));
+					       
+					       action
+					       .click(ToDate2)
+					       		   .sendKeys(toDate2).perform();
+				   		   Thread.sleep(1000);
+				   		   
+					       WebElement Sabt2= driver.findElement(By.xpath("//button[text()='ثبت']"));
+					       
+				   		   action
+				   		 .click(Sabt2).perform();
+				   		   Thread.sleep(1000);
+				   		   
+						   WebElement POPUP2 =driver.findElement(By.xpath("//div[@role='alertdialog']"));
+						   Thread.sleep(500);
+						   String c2=POPUP2.getText();
+					       Assert.assertTrue(c2.contains("موفقیت"));
+				 		    eh.highlightElement(driver,POPUP2); 
+						   Thread.sleep(500);
+						   
+						  action
+						  .click()
+						  .sendKeys(Keys.PAGE_DOWN).perform();
+						   Thread.sleep(500);
+						   
+						   WebElement Tr1Td3_2 =driver.findElement(By.xpath("(//tbody)[3]/tr/td[3]"));
+						   String contractAdded2=Tr1Td3_2.getText();
+
+						   Assert.assertEquals(contractAdded2, contract2);
+				 		    eh.highlightElement(driver,Tr1Td3_2); 
 
 
 }
+	  	   public void SearchInsuranceAllocationList ( WebDriver driver ,String insurance,String contract, String tariff , String model ) throws InterruptedException {
+
+	          Actions action = new Actions(driver);
+	          
+			   //سرچ بر اساس نام بیمه
+			   action
+			   .click(InputSearchInsuranceList2).perform(); Thread.sleep(1000);
+			   action
+			   .sendKeys(insurance)
+			   .click(SearchContractList2)
+			   .perform();  						   Thread.sleep(1000);
+			   
+			   WebElement Tr1Td2 =driver.findElement(By.xpath("(//tbody)[3]/tr/td[2]"));
+			   String trtd2=Tr1Td2.getText();
+
+			   
+			   Assert.assertEquals(insurance, trtd2);
+	 		    eh.highlightElement(driver,Tr1Td2); 
+	 		   Thread.sleep(1000);
+			   action
+			   .click(RefreshContractList2).perform(); Thread.sleep(1000);
+
+	 		    //سرچ بر اساس نام قرارداد
+	 		    
+	 		    action
+	 		    .click(ChooseContract2).perform();  						   Thread.sleep(1000);
+	 		    action
+	 		    .sendKeys(Keys.DOWN)
+	 		    .sendKeys(Keys.ENTER).perform(); Thread.sleep(1000);
+	 		    action
+	 		    .click(SearchContractList2).perform(); Thread.sleep(1000);
+	 		    
+				   WebElement Tr1Td3 =driver.findElement(By.xpath("(//tbody)[3]/tr/td[3]"));
+				   String trtd3=Tr1Td3.getText();
+
+				   Assert.assertEquals(contract, trtd3);
+		 		    eh.highlightElement(driver,Tr1Td3); 
+		 		   Thread.sleep(1000);
+				   action
+				   .click(RefreshContractList2).perform(); Thread.sleep(1000);
+
+		 		    //سرچ بر اساس تعرفه
+		 		    
+		 		    action
+		 		    .click(ChooseTariff2).perform();  						   Thread.sleep(1000);
+		 		    action
+		 		    .sendKeys(Keys.DOWN)
+		 		    .sendKeys(Keys.ENTER).perform(); Thread.sleep(1000);
+		 		    action
+		 		    .click(SearchContractList2).perform(); Thread.sleep(1000);
+		 		    
+					   WebElement Tr1Td5 =driver.findElement(By.xpath("(//tbody)[3]/tr/td[5]"));
+					   String trtd5=Tr1Td5.getText();
+
+					   Assert.assertEquals(tariff, trtd5);
+			 		    eh.highlightElement(driver,Tr1Td5); 
+			 		   Thread.sleep(1000);
+					   action
+					   .click(RefreshContractList2).perform(); Thread.sleep(1000);
+
+			 		    //سرچ بر اساس مدل محاسباتی
+			 		    
+			 		    action
+			 		    .click(ChooseModel2).perform();  						   Thread.sleep(1000);
+						   Thread.sleep(1000);
+						   action
+						   .sendKeys(model).perform();
+				   		   Thread.sleep(500);
+						   action
+						   .sendKeys(Keys.ENTER).perform();
+						   		   Thread.sleep(500);
+			 		    action
+			 		    .click(SearchContractList2).perform(); Thread.sleep(1000);
+			 		    
+						   WebElement Tr1Td4 =driver.findElement(By.xpath("(//tbody)[3]/tr/td[4]"));
+						   String trtd4=Tr1Td4.getText();
+
+						   Assert.assertEquals(model, trtd4);
+				 		    eh.highlightElement(driver,Tr1Td4); 
+				 		   
+
+	  	   }
 }

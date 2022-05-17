@@ -391,6 +391,32 @@ public class DataProviders {
 
 	}
 
+	@DataProvider(name = "SearchInsuranceAllocationList")
+	public Iterator<Object[]>SearchInsuranceAllocationList () throws IOException{
+		CSVReader reader = new CSVReader(
+				new FileReader("./src/test/resources/data/CSVFiles_GV/SearchInsuranceAllocationList.csv"),',','\'',1);
+		List<Object[]> myEntries = new ArrayList<Object[]>();
+		String[] nextLine;
+		while ((nextLine=reader.readNext())!=null) {
+			myEntries.add(nextLine);
+		}
+		reader.close();
+		return myEntries.iterator();
+
+	}
+	@DataProvider(name = "AddInsuranceContract_Repetitious")
+	public Iterator<Object[]>AddInsuranceContract_Repetitious () throws IOException{
+		CSVReader reader = new CSVReader(
+				new FileReader("./src/test/resources/data/CSVFiles_GV/AddInsuranceContract_Repetitious.csv"),',','\'',1);
+		List<Object[]> myEntries = new ArrayList<Object[]>();
+		String[] nextLine;
+		while ((nextLine=reader.readNext())!=null) {
+			myEntries.add(nextLine);
+		}
+		reader.close();
+		return myEntries.iterator();
+
+	}
 
 
 

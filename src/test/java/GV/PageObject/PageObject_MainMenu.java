@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import GV.Package.element_Highlight;
 
@@ -263,8 +264,8 @@ public class PageObject_MainMenu {
 	   Thread.sleep(1000);
    }
    public void InsuranceAllocation_Icon( WebDriver driver) throws InterruptedException {
-	   
-	   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	   ExpectedConditions.elementToBeClickable(FinancialSettings);
+	  // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	   eh.highlightElement(driver,FinancialSettings);
 	   Thread.sleep(1000);
 	   FinancialSettings.click();

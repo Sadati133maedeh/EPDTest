@@ -27,12 +27,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
-public class TestCase_TakhsisInsurance_Add {
+public class TestCase_TakhsisInsurance_SearchInsuranceAllocationList {
       WebDriver driver;
       
       
-  @Test(dataProvider="AddeInsuranceAllocation",dataProviderClass=DataProviders.class)
-  public void f(String URL ,String UserName ,String Password,String insurance, String fromeDate , String toDate,String insurance2, String fromeDate2 , String toDate2) throws Throwable {
+  @Test(dataProvider="SearchInsuranceAllocationList",dataProviderClass=DataProviders.class)
+  public void f(String URL ,String UserName ,String Password,String insurance,String contract, String tariff , String model) throws Throwable {
 	 
 	  driver.navigate().to(URL);
 	  driver.manage().window().maximize();
@@ -59,9 +59,9 @@ public class TestCase_TakhsisInsurance_Add {
 	  k.InsuranceAllocation_Icon(driver);
 	  driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);  
 
-	  //Add 
-	  PageObject_Takhsis_Insurance Add=PageFactory.initElements(driver, PageObject_Takhsis_Insurance.class);
-	  Add.AddeInsuranceAllocation(driver, insurance, fromeDate, toDate, insurance2, fromeDate2, toDate2);
+	  //Search Insurance AllocationList
+	  PageObject_Takhsis_Insurance Search=PageFactory.initElements(driver, PageObject_Takhsis_Insurance.class);
+	  Search.SearchInsuranceAllocationList(driver, insurance, contract, tariff, model);
 	  driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);  
 
 	  

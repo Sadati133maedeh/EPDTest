@@ -8,9 +8,10 @@ import GV.PageObject.PageObgectLogin;
 import GV.PageObject.PageObject_DefinitionCenterParts;
 import GV.PageObject.PageObject_Landing;
 import GV.PageObject.PageObject_MainMenu;
-import GV.PageObject.PageObject_Takhsis_Insurance;
+import GV.PageObject.PageObject_insurance_contract;
 import GV.PageObject.PageObject_license;
 import GV.PageObject.PageObject_riali_K_tariff;
+import GV.PageObject.PageObject_riali_fixed;
 import GV.PageObject.PageObject_speciality;
 import GV.PageObject.PageObject_tariff_type;
 
@@ -27,12 +28,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
-public class TestCase_TakhsisInsurance_Add {
+public class TestCase_AddInsuranceContractRepetitious {
       WebDriver driver;
       
       
-  @Test(dataProvider="AddeInsuranceAllocation",dataProviderClass=DataProviders.class)
-  public void f(String URL ,String UserName ,String Password,String insurance, String fromeDate , String toDate,String insurance2, String fromeDate2 , String toDate2) throws Throwable {
+  @Test(dataProvider="AddInsuranceContract_Repetitious",dataProviderClass=DataProviders.class)
+  public void f(String URL ,String UserName ,String Password,String Contract ,String model ,String herfeyiPatientShear ,String herfeyiInsurShear, String herfeyiFeranshiz, String technicalPatientShear,String technicalInsurShare, String technicalFeranshiz, String tariff, String patientDiference, String insurDiference,String exteraKInsurShare,String extraKFranshiz,String drugInsurShare,String drugFranshizShare) throws Throwable {
 	 
 	  driver.navigate().to(URL);
 	  driver.manage().window().maximize();
@@ -54,14 +55,14 @@ public class TestCase_TakhsisInsurance_Add {
 	  for(String window : driver.getWindowHandles() ) {
 		  driver.switchTo().window(window);
 	  }
-	  //Enter to TakhsisInsurance  Page
+	  //Enter to InsuranceContract Page
 	  PageObject_MainMenu k=PageFactory.initElements(driver, PageObject_MainMenu.class);
-	  k.InsuranceAllocation_Icon(driver);
+	  k.centerContract_Icon(driver);
 	  driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);  
 
-	  //Add 
-	  PageObject_Takhsis_Insurance Add=PageFactory.initElements(driver, PageObject_Takhsis_Insurance.class);
-	  Add.AddeInsuranceAllocation(driver, insurance, fromeDate, toDate, insurance2, fromeDate2, toDate2);
+	  //Add InsuranceContract Repetitions
+	  PageObject_insurance_contract AddRepetitious=PageFactory.initElements(driver, PageObject_insurance_contract.class);
+	  AddRepetitious.AddInsuranceContract_Repetitious(driver, Contract, model, herfeyiPatientShear, herfeyiInsurShear, herfeyiFeranshiz, technicalPatientShear, technicalInsurShare, technicalFeranshiz, tariff, patientDiference, insurDiference, exteraKInsurShare, extraKFranshiz, drugInsurShare, drugFranshizShare);
 	  driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);  
 
 	  
