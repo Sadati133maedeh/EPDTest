@@ -206,7 +206,7 @@ public class PageObject_center_services {
 	   .sendKeys(RVU)
 	   .sendKeys(Keys.ENTER)
 	   .perform();
-	   Thread.sleep(1000);
+	   Thread.sleep(1500);
 
 	       driver.manage().timeouts().implicitlyWait(11, TimeUnit.SECONDS);  
 	   WebElement clippingServiceName= driver.findElement(By.xpath("//mat-table[@role='grid']/mat-row[1]/mat-cell[4]/descendant::input"));

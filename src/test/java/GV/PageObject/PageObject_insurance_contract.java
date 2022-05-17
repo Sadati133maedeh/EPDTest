@@ -27,10 +27,10 @@ public class PageObject_insurance_contract {
 	  @FindBy(xpath="//mat-select[@name='modelMohasebati']")
 	  WebElement ChooseModel;
 	  
-	  	  @FindBy(xpath="(//mat-datepicker-toggle)[1]")
+	  	  @FindBy(xpath="(//button[@type='button'   and @aria-label='Open calendar' ])[1]")
 	  WebElement StartDate;
 	  
-	  	  	  @FindBy(xpath="(//mat-datepicker-toggle)[2]")
+	  	  	  @FindBy(xpath="(//button[@type='button'   and @aria-label='Open calendar' ])[2]")
 	  WebElement EndDate;
 
 	  	  @FindBy(xpath="//mat-checkbox[@name='darsadMoteghayer']")
@@ -357,7 +357,7 @@ public class PageObject_insurance_contract {
 
 				   WebElement POPUP2 =driver.findElement(By.xpath("//div[@role='alertdialog']"));
 				   Thread.sleep(500);
-				   String c2=POPUP.getText();
+				   String c2=POPUP2.getText();
 			       Assert.assertTrue(c2.contains("موفقیت"));
 	               eh.highlightElement(driver,POPUP2); 
 
@@ -370,6 +370,11 @@ public class PageObject_insurance_contract {
 		  	       
 		   Actions action = new Actions(driver);
 		   
+		   action
+		   .click(Pluse).perform();
+		   Thread.sleep(1000);
+
+		   
 		      		      WebElement EditButtonTr1=driver.findElement(By.xpath("//tbody/tr[1]/td[19]/button"));
 
 		   action
@@ -381,14 +386,25 @@ public class PageObject_insurance_contract {
 		   Thread.sleep(1000);
 		   action
 		   .sendKeys(Contract)
+		   .sendKeys(Keys.DOWN).perform();		   Thread.sleep(1000);
+
+		   action
+		   .sendKeys(Keys.DOWN).perform();		   Thread.sleep(1000);
+
+		   action
 		   .sendKeys(Keys.ENTER).perform();
 		   Thread.sleep(1000);
+		   
+		   action.sendKeys(Keys.TAB).perform();
+		   Thread.sleep(500);
+
 
 		   	action
 		   .click(ChooseModel).perform();
 		   Thread.sleep(1000);
 		   action
-		   .sendKeys(model)
+		   .sendKeys(model).perform();		   Thread.sleep(1000);
+		   action
 		   .sendKeys(Keys.ENTER).perform();
 		    Thread.sleep(500);
 		   	
@@ -469,29 +485,6 @@ public class PageObject_insurance_contract {
 		  .sendKeys(technicalFeranshiz).perform();
 		  		   Thread.sleep(1000);
 		  		   
-		   action
-		  .click(TechnicalPatientShear).perform();
-		  TechnicalPatientShear.clear();
-		  action
-		  .click(TechnicalPatientShear)
-		  .sendKeys(technicalPatientShear).perform();
-		  		  		   Thread.sleep(500);
-
-		  action
-		  .click(TechnicalInsurShare).perform();
-		  TechnicalInsurShare.clear();
-		  action
-		  .click(TechnicalInsurShare)
-		  .sendKeys(technicalInsurShare).perform();
-		  		  		  		   Thread.sleep(500);
-
-		  action
-		  .click(TechnicalFeranshiz).perform();
-           TechnicalFeranshiz.clear();
-		  action
-		  .click(TechnicalFeranshiz)
-		  .sendKeys(technicalFeranshiz).perform();
-		  		   Thread.sleep(1000);
 
 		  	action
 		  	.click(DiferenceTariffType).perform();
@@ -554,9 +547,10 @@ public class PageObject_insurance_contract {
 		  		   
 		  	action
 		  	.click(EditButton).perform();
+		  		   Thread.sleep(2000);
 
 
-              WebElement PopUp=driver.findElement(By.xpath("//div[@role='alertdialog]"));
+              WebElement PopUp=driver.findElement(By.xpath("//div[@role='alertdialog']"));
               String alert=PopUp.getText();
               Assert.assertTrue(alert.contains("موفقیت"));
    		      eh.highlightElement(driver,PopUp); 
@@ -564,12 +558,16 @@ public class PageObject_insurance_contract {
    		      action
    		      .click()
    		      .sendKeys(Keys.PAGE_DOWN).perform();
-   		      		  		   Thread.sleep(500);
+   		      		  		   Thread.sleep(1000);
    		      		  		   
    		      WebElement ContractName=driver.findElement(By.xpath("//tbody/tr[1]/td[2]"));
               String td2=ContractName.getText();
+              System.out.println(td2);
               Assert.assertTrue(td2.contains(Contract));
-   		      eh.highlightElement(driver,ContractName); 
+              System.out.println(td2);
+   		      eh.highlightElement(driver,ContractName);
+              System.out.println(td2);
+
    		      
    		      WebElement Model=driver.findElement(By.xpath("//tbody/tr[1]/td[3]"));
               String td3=Model.getText();
@@ -578,62 +576,62 @@ public class PageObject_insurance_contract {
    		      
    		      WebElement pp=driver.findElement(By.xpath("//tbody/tr[1]/td[5]"));
               String td5=pp.getText();
-              Assert.assertEquals(td5 , herfeyiPatientShear);
+              Assert.assertTrue(td5.contains(herfeyiPatientShear));
    		      eh.highlightElement(driver,pp); 
 
    		      WebElement pi=driver.findElement(By.xpath("//tbody/tr[1]/td[6]"));
               String td6=pi.getText();
-              Assert.assertEquals(td6 , herfeyiInsurShear);
+              Assert.assertTrue(td6.contains(herfeyiInsurShear));
    		      eh.highlightElement(driver,pi); 
 
    		      WebElement pf=driver.findElement(By.xpath("//tbody/tr[1]/td[7]"));
               String td7=pf.getText();
-              Assert.assertEquals(td7 , herfeyiFeranshiz);
+              Assert.assertTrue(td7.contains(herfeyiFeranshiz));
    		      eh.highlightElement(driver,pf); 
 
    		      WebElement tp=driver.findElement(By.xpath("//tbody/tr[1]/td[8]"));
               String td8=tp.getText();
-              Assert.assertEquals(td8 , technicalPatientShear);
+              Assert.assertTrue(td8.contains(technicalPatientShear));
    		      eh.highlightElement(driver,tp); 
 
    		      WebElement ti=driver.findElement(By.xpath("//tbody/tr[1]/td[9]"));
               String td9=ti.getText();
-              Assert.assertEquals(td9 , technicalInsurShare);
+              Assert.assertTrue(td9.contains(technicalInsurShare));
    		      eh.highlightElement(driver,ti); 
 
    		      WebElement tf=driver.findElement(By.xpath("//tbody/tr[1]/td[10]"));
               String td10=tf.getText();
-              Assert.assertEquals(td10 , technicalFeranshiz);
+              Assert.assertTrue(td10.contains(technicalFeranshiz));
    		      eh.highlightElement(driver,tf); 
 
    		      WebElement dp=driver.findElement(By.xpath("//tbody/tr[1]/td[11]"));
               String td11=dp.getText();
-              Assert.assertEquals(td11 , patientDiference);
+              Assert.assertTrue(td11.contains(patientDiference));
    		      eh.highlightElement(driver,dp); 
 
    		      WebElement di=driver.findElement(By.xpath("//tbody/tr[1]/td[12]"));
               String td12=di.getText();
-              Assert.assertEquals(td12 , insurDiference);
+              Assert.assertTrue(td12.contains(insurDiference));
    		      eh.highlightElement(driver,di); 
 
    		      WebElement ei=driver.findElement(By.xpath("//tbody/tr[1]/td[13]"));
               String td13=ei.getText();
-              Assert.assertEquals(td13 , exteraKInsurShare);
+              Assert.assertTrue(td13.contains(exteraKInsurShare));
    		      eh.highlightElement(driver,ei); 
 
    		      WebElement ef=driver.findElement(By.xpath("//tbody/tr[1]/td[14]"));
               String td14=ef.getText();
-              Assert.assertEquals(td14 , extraKFranshiz);
+              Assert.assertTrue(td14.contains(extraKFranshiz));
    		      eh.highlightElement(driver,ef); 
 
    		      WebElement dri=driver.findElement(By.xpath("//tbody/tr[1]/td[15]"));
               String td15=dri.getText();
-              Assert.assertEquals(td15 , drugInsurShare);
+              Assert.assertTrue(td15.contains(drugInsurShare));
    		      eh.highlightElement(driver,dri); 
    		      
    		      WebElement drf=driver.findElement(By.xpath("//tbody/tr[1]/td[16]"));
               String td16=drf.getText();
-              Assert.assertEquals(td16 , drugFranshizShare);
+              Assert.assertTrue(td16.contains(drugFranshizShare));
    		      eh.highlightElement(driver,drf); 
 
 		  	   	  	  		   
