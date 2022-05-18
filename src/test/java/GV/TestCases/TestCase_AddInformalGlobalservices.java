@@ -25,12 +25,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
-public class TestCase_AddGlobalService {
+public class TestCase_AddInformalGlobalservices {
       WebDriver driver;
       
       
-  @Test(dataProvider="AddGlobalService",dataProviderClass=DataProviders.class)
-  public void f(String URL ,String UserName ,String Password,String globalName ,String globalCode ,String kJarahi ,String kBihooshi,String degree1 ,String degree2,String degree3,String degree4,String fromdate,String globalName2 ,String globalCode2 ,String kJarahi2 ,String kBihooshi2,String degree12 ,String degree22,String degree32,String degree42,String fromdate2) throws Throwable {
+  @Test(dataProvider="AddInformalGlobalservices",dataProviderClass=DataProviders.class)
+  public void f(String URL ,String UserName ,String Password,String globalName ,String globalCode ,String kJarahi ,String kBihooshi,String degree1 ,String degree2,String degree3,String degree4,String fromdate) throws Throwable {
 	 
 	  driver.navigate().to(URL);
 	  driver.manage().window().maximize();
@@ -57,10 +57,9 @@ public class TestCase_AddGlobalService {
 	  basic.GlobalServices_Icon(driver);
 	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  
 
-	  //Add Global Service
+	  //Add Informal Global services
 	  PageObject_Global_Services_Peyvand Add=PageFactory.initElements(driver, PageObject_Global_Services_Peyvand.class);
-	  Add.AddGlobalService(driver, globalName, globalCode, kJarahi, kBihooshi, degree1, degree2, degree3, degree4, fromdate, globalName2, globalCode2, kJarahi2, kBihooshi2, degree12, degree22, degree32, degree42, fromdate2);
-	  
+	  Add.AddInformalGlobalservices(driver, globalName, globalCode, kJarahi, kBihooshi, degree1, degree2, degree3, degree4, fromdate);
 	  
 	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  
 
