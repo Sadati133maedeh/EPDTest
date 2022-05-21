@@ -417,6 +417,60 @@ public class DataProviders {
 		return myEntries.iterator();
 
 	}
+	@DataProvider(name = "AddGlobalService")
+	public Iterator<Object[]>AddGlobalService () throws IOException{
+		CSVReader reader = new CSVReader(
+				new FileReader("./src/test/resources/data/CSVFiles_GV/AddGlobalService.csv"),',','\'',1);
+		List<Object[]> myEntries = new ArrayList<Object[]>();
+		String[] nextLine;
+		while ((nextLine=reader.readNext())!=null) {
+			myEntries.add(nextLine);
+		}
+		reader.close();
+		return myEntries.iterator();
+
+	}
+	@DataProvider(name = "EditGlobalServiceAdded")
+	public Iterator<Object[]>EditGlobalServiceAdded () throws IOException{
+		CSVReader reader = new CSVReader(
+				new FileReader("./src/test/resources/data/CSVFiles_GV/EditGlobalServiceAdded.csv"),',','\'',1);
+		List<Object[]> myEntries = new ArrayList<Object[]>();
+		String[] nextLine;
+		while ((nextLine=reader.readNext())!=null) {
+			myEntries.add(nextLine);
+		}
+		reader.close();
+		return myEntries.iterator();
+
+	}
+	@DataProvider(name = "AddInformalGlobalservices")
+	public Iterator<Object[]>AddInformalGlobalservices () throws IOException{
+		CSVReader reader = new CSVReader(
+				new FileReader("./src/test/resources/data/CSVFiles_GV/AddInformalGlobalservices.csv"),',','\'',1);
+		List<Object[]> myEntries = new ArrayList<Object[]>();
+		String[] nextLine;
+		while ((nextLine=reader.readNext())!=null) {
+			myEntries.add(nextLine);
+		}
+		reader.close();
+		return myEntries.iterator();
+
+	}
+	@DataProvider(name = "SearchGlobalServiceCenter")
+	public Iterator<Object[]>SearchGlobalServiceCenter () throws IOException{
+		CSVReader reader = new CSVReader(
+				new FileReader("./src/test/resources/data/CSVFiles_GV/SearchGlobalServiceCenter.csv"),',','\'',1);
+		List<Object[]> myEntries = new ArrayList<Object[]>();
+		String[] nextLine;
+		while ((nextLine=reader.readNext())!=null) {
+			myEntries.add(nextLine);
+		}
+		reader.close();
+		return myEntries.iterator();
+
+	}
+
+
 
 
 
