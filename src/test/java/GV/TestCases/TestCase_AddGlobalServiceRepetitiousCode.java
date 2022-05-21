@@ -25,12 +25,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
-public class TestCase_SearchGlobalServiceAdded {
+public class TestCase_AddGlobalServiceRepetitiousCode {
       WebDriver driver;
       
       
-  @Test(dataProvider="LoginPeyvand",dataProviderClass=DataProviders.class)
-  public void f(String URL ,String UserName ,String Password) throws Throwable {
+  @Test(dataProvider="AddGlobalService",dataProviderClass=DataProviders.class)
+  public void f(String URL ,String UserName ,String Password,String globalName ,String globalCode ,String kJarahi ,String kBihooshi,String degree1 ,String degree2,String degree3,String degree4,String fromdate,String globalName2 ,String globalCode2 ,String kJarahi2 ,String kBihooshi2,String degree12 ,String degree22,String degree32,String degree42,String fromdate2) throws Throwable {
 	 
 	  driver.navigate().to(URL);
 	  driver.manage().window().maximize();
@@ -57,9 +57,11 @@ public class TestCase_SearchGlobalServiceAdded {
 	  basic.GlobalServices_Icon(driver);
 	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  
 
-	  //Search Global Service Added
-	  PageObject_Global_Services_Peyvand Search=PageFactory.initElements(driver, PageObject_Global_Services_Peyvand.class);
-	  Search.SearchGlobalServiceAdded(driver);
+	  //Add Global Service
+	  PageObject_Global_Services_Peyvand AddRepetitious=PageFactory.initElements(driver, PageObject_Global_Services_Peyvand.class);
+	  AddRepetitious.AddGlobalServiceRepetitiousCode(driver, globalName, globalCode, kJarahi, kBihooshi, degree1, degree2, degree3, degree4, fromdate, globalName2, globalCode2, kJarahi2, kBihooshi2, degree12, degree22, degree32, degree42, fromdate2);
+	  
+	  
 	  
 	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  
 

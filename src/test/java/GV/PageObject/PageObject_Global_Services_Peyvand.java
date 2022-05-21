@@ -106,6 +106,9 @@ public class PageObject_Global_Services_Peyvand {
 	  	   public void AddGlobalService ( WebDriver driver ,String globalName ,String globalCode,String kJarahi,String kBihooshi,String degree1,String degree2,String degree3,String degree4, String fromdate,String globalName2 ,String globalCode2 ,String kJarahi2 ,String kBihooshi2,String degree12 ,String degree22,String degree32,String degree42,String fromdate2) throws InterruptedException {
 		   Actions action = new Actions(driver);
 		   //خدمت اول
+		   
+		   ExpectedConditions.elementToBeClickable(InputServiceName);
+		   
 		   action
 		   .click(InputServiceName)
 		   .sendKeys(globalName)
@@ -356,7 +359,6 @@ public class PageObject_Global_Services_Peyvand {
 		   Actions action = new Actions(driver);
 		   
 		   WebElement EditButton1 =driver.findElement(By.xpath("(//tbody)[1]/tr[1]/td[13]/div[2]"));
-		   WebElement Edit =driver.findElement(By.xpath("//button[text()='ویرایش ']"));
 		   
 		   action
 		   .click(EditButton1).perform();  	   Thread.sleep(1000);
@@ -365,38 +367,48 @@ public class PageObject_Global_Services_Peyvand {
 		   .click(InputServiceName).perform();
 		   InputServiceName.clear();
 		   action
+		   .click(InputServiceName)
 		   .sendKeys(globalName)
 		   .click(InputCode).perform();
 		   InputCode.clear();
 		   action
+		   .click(InputCode)
 		   .sendKeys(globalCode)
 		   .click(InputKJarahi).perform();
 		   InputKJarahi.clear();
 		   action
+		   .click(InputKJarahi)
 		   .sendKeys(kJarahi)
 		   .click(InputKBihooshi).perform();
 		   InputKBihooshi.clear();
 		   action
+		   .click(InputKBihooshi)
 		   .sendKeys(kBihooshi)
 		   .click(Inputdegree1).perform();
 		   Inputdegree1.clear();
 		   action
+		   .click(Inputdegree1)
 		   .sendKeys(degree1)
 		   .click(Inputdegree2).perform();
 		   Inputdegree2.clear();
 		   action
+		   .click(Inputdegree2)
 		   .sendKeys(degree2)
 		   .click(Inputdegree3).perform();
 		   Inputdegree3.clear();
 		   action
+		   .click(Inputdegree3)
 		   .sendKeys(degree3)
 		   .click(Inputdegree4).perform();
 		   Inputdegree4.clear();
 		   action
+		   .click(Inputdegree4)
 		   .sendKeys(degree4)
-
 		   .perform();
 		   		   Thread.sleep(1000);
+	
+	       WebElement Edit =driver.findElement(By.xpath("//button[text()='ویرایش ']"));
+
 		   	
 		   action
 		   .click(Edit).perform();  		   Thread.sleep(1000);
@@ -455,9 +467,12 @@ public class PageObject_Global_Services_Peyvand {
 	  	   public void AddInformalGlobalservices ( WebDriver driver,String globalName ,String globalCode,String kJarahi,String kBihooshi,String degree1,String degree2,String degree3,String degree4, String fromdate) throws InterruptedException {
 		   Actions action = new Actions(driver);
 		   
+		   ExpectedConditions.elementToBeClickable(InputServiceName);
+
 		   WebElement PlusInformalservices =driver.findElement(By.xpath("(//i[@title='اضافه کردن'])[1]"));
-		   action
-		   .click(PlusInformalservices).perform(); Thread.sleep(1000);
+		   PlusInformalservices.click();
+//		   action
+//		   .click(PlusInformalservices).perform(); Thread.sleep(1000);
 		   //خدمت اول
 		   action
 		   .click(InputServiceName)
@@ -539,7 +554,140 @@ public class PageObject_Global_Services_Peyvand {
                eh.highlightElement(driver,POPUP); 
                
                Thread.sleep(1000);
+               
+    		   WebElement Tr1Td2i =driver.findElement(By.xpath("(//tbody)[1]/tr[1]/td[2]/descendant::i"));
+    		   
+    		   action
+    		   .click(Tr1Td2i).perform(); Thread.sleep(1000);
+    		   
+    		   WebElement Tr1Td2 =driver.findElement(By.xpath("(//tbody)[1]/tr[2]/td[2]"));
+    		   String tr1td2=Tr1Td2.getText();
+    		       Assert.assertEquals(tr1td2, globalName);
+                   eh.highlightElement(driver,Tr1Td2);
 
+    		   
+    		   WebElement Tr1Td3 =driver.findElement(By.xpath("(//tbody)[1]/tr[2]/td[3]"));
+    		   String tr1td3=Tr1Td3.getText();
+    	       Assert.assertEquals(tr1td3, globalCode);
+               eh.highlightElement(driver,Tr1Td3);
+
+    		   WebElement Tr1Td4 =driver.findElement(By.xpath("(//tbody)[1]/tr[2]/td[4]"));
+    		   String tr1td4=Tr1Td4.getText();
+    	       Assert.assertEquals(tr1td4, kJarahi);
+               eh.highlightElement(driver,Tr1Td4);
+
+    		   WebElement Tr1Td5 =driver.findElement(By.xpath("(//tbody)[1]/tr[2]/td[5]"));
+    		   String tr1td5=Tr1Td5.getText();
+    	       Assert.assertEquals(tr1td5, kBihooshi);
+               eh.highlightElement(driver,Tr1Td5);
+
+    		   WebElement Tr1Td6 =driver.findElement(By.xpath("(//tbody)[1]/tr[2]/td[6]"));
+    		   String tr1td6=Tr1Td6.getText();
+    	       Assert.assertEquals(tr1td6, degree1);
+               eh.highlightElement(driver,Tr1Td6);
+
+    		   WebElement Tr1Td7 =driver.findElement(By.xpath("(//tbody)[1]/tr[2]/td[7]"));
+    		   String tr1td7=Tr1Td7.getText();
+    	       Assert.assertEquals(tr1td7, degree2);
+               eh.highlightElement(driver,Tr1Td7);
+
+    		   WebElement Tr1Td8 =driver.findElement(By.xpath("(//tbody)[1]/tr[2]/td[8]"));
+    		   String tr1td8=Tr1Td8.getText();
+    	       Assert.assertEquals(tr1td8, degree3);
+               eh.highlightElement(driver,Tr1Td8);
+
+    		   WebElement Tr1Td9 =driver.findElement(By.xpath("(//tbody)[1]/tr[2]/td[9]"));
+    		   String tr1td9=Tr1Td9.getText();
+    	       Assert.assertEquals(tr1td9, degree4);
+               eh.highlightElement(driver,Tr1Td9);
 		   
+	  	   }
+	  	   
+	  	   public void AddGlobalServiceRepetitiousCode ( WebDriver driver ,String globalName ,String globalCode,String kJarahi,String kBihooshi,String degree1,String degree2,String degree3,String degree4, String fromdate,String globalName2 ,String globalCode2 ,String kJarahi2 ,String kBihooshi2,String degree12 ,String degree22,String degree32,String degree42,String fromdate2) throws InterruptedException {
+		   Actions action = new Actions(driver);
+		   //خدمت اول
+		   
+		   ExpectedConditions.elementToBeClickable(InputServiceName);
+		   
+		   action
+		   .click(InputServiceName)
+		   .sendKeys(globalName)
+		   .click(InputCode)
+		   .sendKeys(globalCode)
+		   .click(InputKJarahi)
+		   .sendKeys(kJarahi)
+		   .click(InputKBihooshi)
+		   .sendKeys(kBihooshi)
+		   .click(Inputdegree1)
+		   .sendKeys(degree1)
+		   .click(Inputdegree2)
+		   .sendKeys(degree2)
+		   .click(Inputdegree3)
+		   .sendKeys(degree3)
+		   .click(Inputdegree4)
+		   .sendKeys(degree4)
+
+		   .perform();
+		   		   Thread.sleep(1000);
+		   	//PopUp
+		   		   
+		   	action
+		   	.click(OpenServicesPop).perform(); Thread.sleep(1000);
+		   	//زیرگروه خدمت
+		   	action
+		   	.click(SubGroupService).perform(); Thread.sleep(1000);
+		   	
+		   	action
+		   	.sendKeys(Keys.DOWN)
+		   	.sendKeys(Keys.DOWN).perform();  Thread.sleep(1000);
+		   	action
+		   	.sendKeys(Keys.ENTER).perform(); Thread.sleep(1000);
+		   	//گروه
+		   	action
+		   	.click(Group).perform(); Thread.sleep(1000);
+		   	
+  			action
+		   	.sendKeys(Keys.DOWN)
+		   	.sendKeys(Keys.DOWN)
+		   	.sendKeys(Keys.DOWN).perform();  Thread.sleep(1000);
+		   	action
+		   	.sendKeys(Keys.ENTER).perform(); Thread.sleep(1000);
+		   	//زیرگروه
+		   	action
+		   	.click(SubGroup).perform(); Thread.sleep(1000);
+		   	
+  			action
+		   	.sendKeys(Keys.DOWN)
+		   	.sendKeys(Keys.DOWN)
+		   	.sendKeys(Keys.DOWN)
+		   	.sendKeys(Keys.DOWN).perform();  Thread.sleep(1000);
+		   	action
+		   	.sendKeys(Keys.ENTER).perform(); Thread.sleep(1000);
+		   	//جستجو
+		   	action
+		   	.click(SearchPop).perform();
+	   		   Thread.sleep(10000);
+	   		   
+	   		 //انتخاب خدمت  
+	   		   WebElement Checkbox1= driver.findElement(By.xpath("(//tbody)[2]/tr[1]/td[3]/descendant::input"));
+	   		   action
+	   		   .click(Checkbox1).perform(); Thread.sleep(1000);
+	   		   action
+	   		   .click(SavePop).perform(); Thread.sleep(1000);
+	   		   
+	   		   //تاریخ
+	   		   action
+	   		   .click(FromDate)
+	   		   .sendKeys(fromdate)
+	   		   .click(Save)
+	   		   .perform(); Thread.sleep(6000);
+	   		   
+			   WebElement POPUP =driver.findElement(By.xpath("//div[@role='alertdialog']"));
+			   Thread.sleep(500);
+			   String c=POPUP.getText();
+		       Assert.assertTrue(c.contains("کد"));
+               eh.highlightElement(driver,POPUP); 
+               
+               Thread.sleep(1000);
 	  	   }
 }

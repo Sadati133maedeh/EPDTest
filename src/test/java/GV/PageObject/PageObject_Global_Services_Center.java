@@ -47,7 +47,7 @@ public class PageObject_Global_Services_Center {
 
 
 	  
-	  	   public void SearchGlobalServiceCenter ( WebDriver driver ,String globalName ,String globalCode,String kJarahi,String kBihooshi,String degree1,String degree2,String degree3,String degree4, String fromdate) throws InterruptedException {
+	  	   public void SearchGlobalServiceCenterByGroup ( WebDriver driver ,String globalName ,String globalCode,String kJarahi,String kBihooshi,String degree1,String degree2,String degree3,String degree4, String fromdate) throws InterruptedException {
 		   Actions action = new Actions(driver);
 		   	//زیرگروه خدمت
 		   	action
@@ -82,7 +82,7 @@ public class PageObject_Global_Services_Center {
 		   	//جستجو
 		   	action
 		   	.click(SearchGrid).perform();
-	   		   Thread.sleep(10000);
+	   		   Thread.sleep(3000);
 	   		   
 			   WebElement Tr1Td2 =driver.findElement(By.xpath("//tbody/tr[1]/td[2]"));
 			   String tr1td2=Tr1Td2.getText();
@@ -129,10 +129,38 @@ public class PageObject_Global_Services_Center {
 
 	  	   }
 	  	   
-	  	   public void SearchGlobalServiceNameCenter ( WebDriver driver ,String globalName ,String globalCode,String kJarahi,String kBihooshi,String degree1,String degree2,String degree3,String degree4, String fromdate) throws InterruptedException {
+	  	   public void SearchGlobalServiceNameAndCodeCenter (WebDriver driver ,String globalName ,String globalCode,String kJarahi,String kBihooshi,String degree1,String degree2,String degree3,String degree4, String fromdate) throws InterruptedException {
 		   Actions action = new Actions(driver);
-	  	   }
-	  	   public void SearchGlobalServiceCodeCenter ( WebDriver driver ,String globalName ,String globalCode,String kJarahi,String kBihooshi,String degree1,String degree2,String degree3,String degree4, String fromdate) throws InterruptedException {
-		   Actions action = new Actions(driver);
+		   //سرچ نام خدمت اضافه شده
+		   ExpectedConditions.elementToBeClickable(InputServiceNameSearch);
+
+		   action
+		   .click(InputServiceNameSearch)
+		   .sendKeys(globalName)
+		   .click(SearchGrid).perform(); 	   		   Thread.sleep(2000);
+		   
+		   WebElement Tr1Td2 =driver.findElement(By.xpath("//tbody/tr[1]/td[2]"));
+		   String tr1td2=Tr1Td2.getText();
+		       Assert.assertEquals(tr1td2, globalName);
+               eh.highlightElement(driver,Tr1Td2);
+
+
+               //رفرش
+               action
+               .click(RefreshSearchGrid).perform(); Thread.sleep(1000);
+    		   //سرچ کد خدمت اضافه شده
+               
+    		   action
+    		   .click(InputCodeSearch)
+    		   .sendKeys(globalCode)
+    		   .click(SearchGrid).perform(); 	   		   Thread.sleep(2000);
+
+			   WebElement Tr1Td3 =driver.findElement(By.xpath("//tbody/tr[1]/td[3]"));
+			   String tr1td3=Tr1Td3.getText();
+		       Assert.assertEquals(tr1td3, globalCode);
+	           eh.highlightElement(driver,Tr1Td3);
+	  	 
+
+		   
 	  	   }
 }

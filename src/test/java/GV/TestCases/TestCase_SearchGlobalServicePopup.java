@@ -29,7 +29,7 @@ public class TestCase_SearchGlobalServicePopup {
       WebDriver driver;
       
       
-  @Test(dataProvider="Login",dataProviderClass=DataProviders.class)
+  @Test(dataProvider="LoginPeyvand",dataProviderClass=DataProviders.class)
   public void f(String URL ,String UserName ,String Password) throws Throwable {
 	 
 	  driver.navigate().to(URL);

@@ -60,7 +60,7 @@ public class TestCase_SearchGlobalServiceCenter {
 
 	  //Search Global Service Center
 	  PageObject_Global_Services_Center Search=PageFactory.initElements(driver, PageObject_Global_Services_Center.class);
-	  Search.SearchGlobalServiceCenter(driver, globalName, globalCode, kJarahi, kBihooshi, degree1, degree2, degree3, degree4, fromdate);
+	  Search.SearchGlobalServiceCenterByGroup(driver, globalName, globalCode, kJarahi, kBihooshi, degree1, degree2, degree3, degree4, fromdate);
 	  
 	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  
 

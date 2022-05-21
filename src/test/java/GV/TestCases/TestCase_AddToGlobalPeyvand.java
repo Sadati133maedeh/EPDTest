@@ -5,9 +5,11 @@ import org.testng.annotations.Test;
 import GV.Package.element_Highlight;
 import GV.Package.DataProviders;
 import GV.PageObject.PageObgectLogin;
+import GV.PageObject.PageObject_Global_Services_Center;
 import GV.PageObject.PageObject_Global_Services_Peyvand;
 import GV.PageObject.PageObject_Landing;
 import GV.PageObject.PageObject_MainMenu;
+import GV.PageObject.PageObject_add_to_global;
 import GV.PageObject.PageObject_contract_type;
 import GV.PageObject.PageObject_license;
 import GV.PageObject.PageObject_speciality;
@@ -25,12 +27,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
-public class TestCase_SearchGlobalServiceAdded {
+public class TestCase_AddToGlobalPeyvand {
       WebDriver driver;
       
       
-  @Test(dataProvider="LoginPeyvand",dataProviderClass=DataProviders.class)
-  public void f(String URL ,String UserName ,String Password) throws Throwable {
+  @Test(dataProvider="AddToGlobalPeyvand",dataProviderClass=DataProviders.class)
+  public void f(String URL ,String UserName ,String Password, String toDate ,String toDate2) throws Throwable {
 	 
 	  driver.navigate().to(URL);
 	  driver.manage().window().maximize();
@@ -52,15 +54,14 @@ public class TestCase_SearchGlobalServiceAdded {
 	  for(String window : driver.getWindowHandles() ) {
 		  driver.switchTo().window(window);
 	  }
-	  //Enter to Global Service Page
+	  //Enter to Add To Global Page
 	  PageObject_MainMenu basic=PageFactory.initElements(driver, PageObject_MainMenu.class);
-	  basic.GlobalServices_Icon(driver);
+	  basic.AddToGlobal_Icon(driver);
 	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  
 
-	  //Search Global Service Added
-	  PageObject_Global_Services_Peyvand Search=PageFactory.initElements(driver, PageObject_Global_Services_Peyvand.class);
-	  Search.SearchGlobalServiceAdded(driver);
-	  
+	  //add_to_global
+	  PageObject_add_to_global Add=PageFactory.initElements(driver, PageObject_add_to_global.class);
+	  Add.AddToGlobalPeyvand(driver, toDate, toDate2);
 	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  
 
 	  
