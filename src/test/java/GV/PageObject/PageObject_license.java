@@ -2,6 +2,7 @@ package GV.PageObject;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -321,7 +322,12 @@ public class PageObject_license {
 	   .sendKeys(licenseCode)
 	   .click(SearchButtom)
 	   .perform();
+	   
+	   WebElement FirstCodetd=driver.findElement(By.xpath("//tbody/tr[1]/td[4]")); 
 	   AddedCode=FirstCodetd.getText();   
+	   Assert.assertEquals(AddedCode, licenseCode);
+	   eh.highlightElement(driver,FirstCodetd);
+
    }
 
  }
