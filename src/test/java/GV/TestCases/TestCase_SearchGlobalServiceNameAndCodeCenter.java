@@ -5,8 +5,12 @@ import org.testng.annotations.Test;
 import GV.Package.element_Highlight;
 import GV.Package.DataProviders;
 import GV.PageObject.PageObgectLogin;
+import GV.PageObject.PageObject_Global_Services_Center;
+import GV.PageObject.PageObject_Global_Services_Peyvand;
 import GV.PageObject.PageObject_Landing;
 import GV.PageObject.PageObject_MainMenu;
+import GV.PageObject.PageObject_contract_type;
+import GV.PageObject.PageObject_license;
 import GV.PageObject.PageObject_speciality;
 
 import org.testng.annotations.BeforeMethod;
@@ -22,16 +26,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
-public class TestCase_DeActiveSpeciality {
-      String nationalCode;
-
-      
+public class TestCase_SearchGlobalServiceNameAndCodeCenter {
       WebDriver driver;
-	element_Highlight eh= new element_Highlight();
-
-
-  @Test(dataProvider="AddSpeciality",dataProviderClass=DataProviders.class)
-  public void f(String URL ,String UserName ,String Password, String specialitiyCode, String specialitiyCode2 ,String specialitiyCode3) throws Throwable {
+      
+      
+  @Test(dataProvider="SearchGlobalServiceCenter",dataProviderClass=DataProviders.class)
+  public void f(String URL ,String UserName ,String Password,String globalName ,String globalCode ,String kJarahi ,String kBihooshi,String degree1 ,String degree2,String degree3,String degree4,String fromdate) throws Throwable {
 	 
 	  driver.navigate().to(URL);
 	  driver.manage().window().maximize();
@@ -46,17 +46,25 @@ public class TestCase_DeActiveSpeciality {
 		//Landing
 		PageObject_Landing Icon = PageFactory.initElements(driver, PageObject_Landing.class);
 		Icon.GV_Icon(driver);
+		  driver.manage().timeouts().implicitlyWait(11, TimeUnit.SECONDS);  
+
 		
 		  	  System.out.println(driver.getCurrentUrl());
 	  for(String window : driver.getWindowHandles() ) {
 		  driver.switchTo().window(window);
 	  }
-	  //Enter to SpecialityType Page
+	  //Enter to Global Service Page
 	  PageObject_MainMenu basic=PageFactory.initElements(driver, PageObject_MainMenu.class);
-	  basic.SpecialityType_Icon(driver);
-	  //DeActiveSpeciality
-	  PageObject_speciality DeActive=PageFactory.initElements(driver, PageObject_speciality.class);
-	  DeActive.DeActiveSpeciality(driver, specialitiyCode);
+	  basic.GlobalServices_Icon(driver);
+	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  
+
+	  //Search Global Service Center
+	  PageObject_Global_Services_Center Search=PageFactory.initElements(driver, PageObject_Global_Services_Center.class);
+	  Search.SearchGlobalServiceNameAndCodeCenter(driver, globalName, globalCode, kJarahi, kBihooshi, degree1, degree2, degree3, degree4, fromdate);
+	  
+	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  
+
+	  
 
 	  }
   @BeforeMethod

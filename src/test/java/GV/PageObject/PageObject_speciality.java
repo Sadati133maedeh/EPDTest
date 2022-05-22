@@ -2,6 +2,7 @@ package GV.PageObject;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -252,6 +253,8 @@ public class PageObject_speciality {
 	   Thread.sleep(1000);
 	   searchSpecialityName=FirstNametd.getText();
 	   Assert.assertEquals(SpecialityName, searchSpecialityName);
+	   eh.highlightElement(driver,FirstNametd);
+
 	   action.click(Refresh).perform();
 	 //نمایش لیست غیر فعال
 	   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -275,6 +278,8 @@ public class PageObject_speciality {
 	   Thread.sleep(1000);
 	   searchSpecialityName=FirstNametd.getText();
 	   Assert.assertEquals(SpecialityName, searchSpecialityName);
+	   eh.highlightElement(driver,FirstNametd);
+
 	   action.click(Refresh).perform();
    }   
    //غیر فعال کردن تخصص
@@ -311,6 +316,12 @@ public class PageObject_speciality {
 	   .sendKeys(specialitiyCode)
 	   .click(SearchButtom)
 	   .perform();
+	   Thread.sleep(1000);
+
+	   WebElement FirstCodetd=driver.findElement(By.xpath("//tbody/tr[1]/td[4]")); 
 	   AddedCode=FirstCodetd.getText();   
+	   Assert.assertEquals(AddedCode, specialitiyCode);
+	   eh.highlightElement(driver,FirstCodetd);
+
    }
  }

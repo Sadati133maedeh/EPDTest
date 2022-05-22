@@ -5,9 +5,12 @@ import org.testng.annotations.Test;
 import GV.Package.element_Highlight;
 import GV.Package.DataProviders;
 import GV.PageObject.PageObgectLogin;
+import GV.PageObject.PageObject_DefinitionCenterParts;
 import GV.PageObject.PageObject_Landing;
 import GV.PageObject.PageObject_MainMenu;
+import GV.PageObject.PageObject_license;
 import GV.PageObject.PageObject_speciality;
+import GV.PageObject.PageObject_tariff_type;
 
 import org.testng.annotations.BeforeMethod;
 import java.util.concurrent.TimeUnit;
@@ -22,16 +25,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
-public class TestCase_DeActiveSpeciality {
-      String nationalCode;
-
-      
+public class TestCase_Check_CopyTariff {
       WebDriver driver;
-	element_Highlight eh= new element_Highlight();
-
-
-  @Test(dataProvider="AddSpeciality",dataProviderClass=DataProviders.class)
-  public void f(String URL ,String UserName ,String Password, String specialitiyCode, String specialitiyCode2 ,String specialitiyCode3) throws Throwable {
+      
+      
+  @Test(dataProvider="Check_CopyTariff",dataProviderClass=DataProviders.class)
+  public void f(String URL ,String UserName ,String Password,String tariff,String tariff2,String tariff3 ) throws Throwable {
 	 
 	  driver.navigate().to(URL);
 	  driver.manage().window().maximize();
@@ -46,17 +45,24 @@ public class TestCase_DeActiveSpeciality {
 		//Landing
 		PageObject_Landing Icon = PageFactory.initElements(driver, PageObject_Landing.class);
 		Icon.GV_Icon(driver);
+		  driver.manage().timeouts().implicitlyWait(11, TimeUnit.SECONDS);  
+
 		
 		  	  System.out.println(driver.getCurrentUrl());
 	  for(String window : driver.getWindowHandles() ) {
 		  driver.switchTo().window(window);
 	  }
-	  //Enter to SpecialityType Page
-	  PageObject_MainMenu basic=PageFactory.initElements(driver, PageObject_MainMenu.class);
-	  basic.SpecialityType_Icon(driver);
-	  //DeActiveSpeciality
-	  PageObject_speciality DeActive=PageFactory.initElements(driver, PageObject_speciality.class);
-	  DeActive.DeActiveSpeciality(driver, specialitiyCode);
+	  //Enter to Tariff Page
+	  PageObject_MainMenu Tariff=PageFactory.initElements(driver, PageObject_MainMenu.class);
+	  Tariff.Tariff_Icon(driver);
+	  driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);  
+
+	  //Check_CopyTariff
+	  PageObject_tariff_type Check=PageFactory.initElements(driver, PageObject_tariff_type.class);
+	  Check.Check_CopyTariff(driver, tariff, tariff2, tariff3);
+	  driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);  
+
+	  
 
 	  }
   @BeforeMethod

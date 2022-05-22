@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import GV.Package.element_Highlight;
@@ -81,9 +82,8 @@ public class PageObject_tariff_type {
 	}
 	   public void Edit_Tariff( WebDriver driver ,String Newtariff ,String tariff2) throws InterruptedException {
 		   Actions action = new Actions(driver);
-		   WebElement FirstTrTariff=driver.findElement(By.xpath("//tbody/tr/td[2]"));
+		   ExpectedConditions.elementToBeClickable(SearchTariff);
 		   WebElement FirstPenTariff=driver.findElement(By.xpath("//mat-icon[text()='edit']"));
-		   WebElement EditButton1 =driver.findElement(By.xpath("//button[text()='ویرایش']"));
 		   action
 		   .click(SearchTariff)
 		   .sendKeys(tariff2)
@@ -91,6 +91,8 @@ public class PageObject_tariff_type {
 		   .click(FirstPenTariff)
 		   .click(TarrifeName)
 		   .perform();
+		   WebElement EditButton1 =driver.findElement(By.xpath("//button[text()='ویرایش']"));
+
 		   TarrifeName.clear();
 		   Thread.sleep(1000);
 		   action
@@ -99,8 +101,20 @@ public class PageObject_tariff_type {
 		   .click(EditButton1)
 		   .perform();
 		   Thread.sleep(1000);
-		   String EditedTarrif= FirstTrTariff.getText();
-		   Assert.assertEquals(EditedTarrif, Newtariff);
+		   
+		   action
+		   .click(RefreshSearch).perform();
+		   Thread.sleep(1000);
+		   action
+		   .click(SearchTariff)
+		   .sendKeys(Newtariff)
+		   .click(SearchButton).perform();
+		   Thread.sleep(1000);
+
+		   WebElement FirstTrTariff=driver.findElement(By.xpath("//tbody/tr/td[2]"));
+		   String firstTrTariff=FirstTrTariff.getText();
+		   Assert.assertEquals(firstTrTariff, Newtariff);
+		   eh.highlightElement(driver,FirstTrTariff);
 
 	}
 	   public void Active_DeActive( WebDriver driver ,String Newtariff, String activ_deActiv, String activ_deActiv2) throws InterruptedException {
@@ -177,6 +191,33 @@ public class PageObject_tariff_type {
 	       Assert.assertEquals(AddedStandard, AddedStandardCheck);
 		   eh.highlightElement(driver,StandardizationCombo); 
 
+	   }
+	   
+	   
+	   public void Check_CopyTariff ( WebDriver driver , String tariff ,String tariff2,String tariff3) throws InterruptedException {
+	 	   
+		   WebElement TrTariff=driver.findElement(By.xpath("//tbody/tr/td[2]"));
+		   WebElement Tr2Tariff=driver.findElement(By.xpath("//tbody/tr[2]/td[2]"));
+		   WebElement Tr3Tariff=driver.findElement(By.xpath("//tbody/tr[3]/td[2]"));
+
+		   String trTariff=TrTariff.getText();
+		   Assert.assertEquals(trTariff, tariff);
+		   eh.highlightElement(driver,TrTariff);
+		   Thread.sleep(1000);
+
+		   
+		   String tr2Tariff=Tr2Tariff.getText();
+		   Assert.assertEquals(tr2Tariff, tariff2);
+		   eh.highlightElement(driver,Tr2Tariff);
+		   Thread.sleep(1000);
+
+
+		   String tr3Tariff=Tr3Tariff.getText();
+		   Assert.assertEquals(tr3Tariff, tariff3);
+		   eh.highlightElement(driver,Tr3Tariff);
+		   
+ 
+	 	   
 	   }
 
 }

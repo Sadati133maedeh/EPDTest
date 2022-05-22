@@ -2,12 +2,14 @@ package GV.PageObject;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import GV.Package.element_Highlight;
@@ -18,6 +20,7 @@ public class PageObject_insuranse {
   element_Highlight eh= new element_Highlight();
   
   String AddedCode; 
+
   String InsuranceName;
   String searchInsurance;
 
@@ -68,6 +71,7 @@ public class PageObject_insuranse {
 	   eh.highlightElement(driver,Active_Diactive);
 	   Thread.sleep(1000);
 	   Active_Diactive.click();
+	   Thread.sleep(1000);
 	   eh.unhighlightLast(driver, Active_Diactive);
 	   action
 	   .sendKeys(Keys.DOWN)
@@ -82,8 +86,11 @@ public class PageObject_insuranse {
 	   .click(SearchButtom)
 	   .perform();
 	   Thread.sleep(500);
+	   WebElement checkbox=driver.findElement(By.xpath("//tbody/tr[1]/td[5]/descendant::span[1]"));
 	   action
-	   .click(checkbox)
+	   .click(checkbox).perform();
+	   Thread.sleep(2000);
+	   action
 	   .click(Save)
 	   .perform();
 	   Thread.sleep(2000);
@@ -94,6 +101,8 @@ public class PageObject_insuranse {
 	   .sendKeys(insuranceCode)
 	   .click(SearchButtom)
 	   .perform();
+	   WebElement FirstCodetd=driver.findElement(By.xpath("//tbody/tr[1]/td[3]"));
+
 	   AddedCode=FirstCodetd.getText();
 	   Assert.assertEquals(AddedCode, insuranceCode);
 	   action.click(Refresh).perform();
@@ -117,8 +126,12 @@ public class PageObject_insuranse {
 	   .click(SearchButtom)
 	   .perform();
 	   Thread.sleep(500);
+	   WebElement checkbox2=driver.findElement(By.xpath("//tbody/tr[1]/td[5]/descendant::span[1]"));
+
 	   action
-	   .click(checkbox)
+	   .click(checkbox2).perform();
+	   Thread.sleep(2000);
+	   action
 	   .click(Save)
 	   .perform();
 	   Thread.sleep(2000);
@@ -129,26 +142,12 @@ public class PageObject_insuranse {
 	   .sendKeys(insuranceCode2)
 	   .click(SearchButtom)
 	   .perform();
-	   Boolean staleElement = true;
-	   while(staleElement){
-
-		   try{
-
-			   AddedCode=FirstCodetd.getText();
-
-		      staleElement = false;
-
-
-		   } catch(StaleElementReferenceException FirstCodetd){
-
-		     staleElement = true;
-
-		   }
-
-		 }
-
-	   AddedCode=FirstCodetd.getText();
-	   Assert.assertEquals(AddedCode, insuranceCode2);
+	   
+	   WebElement FirstCodetd2=driver.findElement(By.xpath("//tbody/tr[1]/td[3]"));
+	   String AddedCode2; 
+	   AddedCode2=null;
+	   AddedCode2=FirstCodetd2.getText();
+	   Assert.assertEquals(AddedCode2, insuranceCode2);
 	   action.click(Refresh).perform();
 		 //نمایش لیست غیر فعال
 	   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -170,8 +169,12 @@ public class PageObject_insuranse {
 	   .click(SearchButtom)
 	   .perform();
 	   Thread.sleep(500);
+	   WebElement checkbox3=driver.findElement(By.xpath("//tbody/tr[1]/td[5]/descendant::input"));
+
 	   action
-	   .click(checkbox)
+	   .click(checkbox3).perform();
+	   Thread.sleep(2000);
+	   action
 	   .click(Save)
 	   .perform();
 	   Thread.sleep(2000);
@@ -182,31 +185,19 @@ public class PageObject_insuranse {
 	   .sendKeys(insuranceCode3)
 	   .click(SearchButtom)
 	   .perform();
-	   Boolean staleElement1 = true;
-	   while(staleElement1){
+	   
+	   WebElement FirstCodetd3=driver.findElement(By.xpath("//tbody/tr[1]/td[3]"));
 
-		   try{
+	   String AddedCode3; 
 
-			   AddedCode=FirstCodetd.getText();
-
-		      staleElement1 = false;
-
-
-		   } catch(StaleElementReferenceException FirstCodetd){
-
-		     staleElement1 = true;
-
-		   }
-
-		 }
-
-	   AddedCode=FirstCodetd.getText();
-	   Assert.assertEquals(AddedCode, insuranceCode3);   
+	   AddedCode3=FirstCodetd3.getText();
+	   Assert.assertEquals(AddedCode3, insuranceCode3);   
 	   
    }
  //سرچ نام بیمه
    public void SearchInsuranceName ( WebDriver driver ) throws InterruptedException {
-	   
+	   ExpectedConditions.elementToBeClickable(Active_Diactive);
+
 	   Actions action = new Actions(driver);
 	 //نمایش لیست غیرفعال
 	   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
