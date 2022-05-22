@@ -509,6 +509,19 @@ public class DataProviders {
 		return myEntries.iterator();
 
 	}
+	@DataProvider(name = "Check_CopyTariff")
+	public Iterator<Object[]>Check_CopyTariff () throws IOException{
+		CSVReader reader = new CSVReader(
+				new FileReader("./src/test/resources/data/CSVFiles_GV/Check_CopyTariff.csv"),',','\'',1);
+		List<Object[]> myEntries = new ArrayList<Object[]>();
+		String[] nextLine;
+		while ((nextLine=reader.readNext())!=null) {
+			myEntries.add(nextLine);
+		}
+		reader.close();
+		return myEntries.iterator();
+
+	}
 
 
 
