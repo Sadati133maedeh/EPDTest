@@ -75,7 +75,9 @@ public class PageObject_services {
 	   Actions action = new Actions(driver);
 	   action
 	   //جستجوی خدمت داخلی
-	   .click(MainGroupServices)
+	   .click(MainGroupServices).perform();
+	   Thread.sleep(2000);
+	   action
 	   .sendKeys(Keys.DOWN)
 	   .sendKeys(Keys.DOWN)
 	   .sendKeys(Keys.DOWN)
@@ -91,13 +93,14 @@ public class PageObject_services {
 	   searchservicename = FirstServiceName.getText();
 	   assertEquals(searchservicename, serviceName1);
        eh.highlightElement(driver, FirstServiceName);
-	   Thread.sleep(500);
-		eh.unhighlightLast(driver, FirstServiceName);
+	   Thread.sleep(1000);
 
 	   Refresh.click();
 	   //جستجوی خدمت جراحی
 	   action
-	   .click(MainGroupServices)
+	   .click(MainGroupServices).perform();
+	   Thread.sleep(2000);
+	   action
 	   .sendKeys(Keys.DOWN)
 	   .sendKeys(Keys.DOWN)
 	   .sendKeys(Keys.ENTER)
@@ -110,13 +113,14 @@ public class PageObject_services {
 	   searchservicename = FirstServiceNameJarahi.getText();
 	   assertEquals(searchservicename, serviceName2);
        eh.highlightElement(driver, FirstServiceNameJarahi);
-	   Thread.sleep(500);
-		eh.unhighlightLast(driver, FirstServiceNameJarahi);
+	   Thread.sleep(1000);
 
 	   Refresh.click();
 	   //جستجوی کد RUV
 	   action
-	   .click(MainGroupServices)
+	   .click(MainGroupServices).perform();
+	   Thread.sleep(2000);
+	   action
 	   .sendKeys(Keys.DOWN)
 	   .sendKeys(Keys.ENTER)
 	   .perform();
@@ -128,8 +132,7 @@ public class PageObject_services {
 	   searchservicename = FirstRUVcode.getText();
 	   assertEquals(searchservicename, RUVCode);
        eh.highlightElement(driver, FirstRUVcode);
-	   Thread.sleep(500);
-		eh.unhighlightLast(driver, FirstRUVcode);
+	   Thread.sleep(1000);
 
 	   
 

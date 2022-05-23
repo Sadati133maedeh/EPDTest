@@ -32,7 +32,7 @@ public class TestCase_DeActiveInsuranse {
 	element_Highlight eh= new element_Highlight();
 
 
-  @Test(dataProvider="AddLicense",dataProviderClass=DataProviders.class)
+  @Test(dataProvider="AddInsurance",dataProviderClass=DataProviders.class)
   public void f(String URL ,String UserName ,String Password, String insuranseCode, String insuranseCode2 ,String insuranseCode3) throws Throwable {
 	 
 	  driver.navigate().to(URL);
