@@ -119,14 +119,14 @@ public class PageObject_tariff_type {
 	}
 	   public void Active_DeActive( WebDriver driver ,String Newtariff, String activ_deActiv, String activ_deActiv2) throws InterruptedException {
 		   Actions action = new Actions(driver);
-		   WebElement FirstTrCheckbox=driver.findElement(By.xpath("//tbody/tr/td[4]/descendant::span[1]"));
-		   WebElement FirstTrTariff=driver.findElement(By.xpath("//tbody/tr/td[2]"));
 //DeActive
 		   action
 		   .click(SearchTariff)
 		   .sendKeys(Newtariff)
 		   .click(SearchButton).perform();
 		   Thread.sleep(1000);
+		   WebElement FirstTrCheckbox=driver.findElement(By.xpath("//tbody/tr/td[4]/descendant::span[1]"));
+
 		   action
 		   .click(FirstTrCheckbox)
 		   .click(Save)
@@ -140,25 +140,35 @@ public class PageObject_tariff_type {
 		   .click(SearchButton)
 		   .perform();
 		   Thread.sleep(1000);
+		   WebElement FirstTrTariff=driver.findElement(By.xpath("//tbody/tr/td[2]"));
+
 		   String Tarrif= FirstTrTariff.getText();
 		   Assert.assertEquals(Tarrif, Newtariff); 
-		   
+		   eh.highlightElement(driver,FirstTrTariff);
+
+		   Thread.sleep(1000);
+
 		   //Active
+		   WebElement FirstTrCheckbox2=driver.findElement(By.xpath("//tbody/tr/td[4]/descendant::span[1]"));
+
 		   action
-		   .click(FirstTrCheckbox)
+		   .click(FirstTrCheckbox2)
 		   .click(Save)
 		   .click(Activ_DeActiv).perform();
 		   Thread.sleep(1000);
 		   action
-		   .sendKeys(activ_deActiv).perform();
+		   .sendKeys(activ_deActiv2).perform();
 		   Thread.sleep(500);
 		   action
 		   .sendKeys(Keys.ENTER)
 		   .click(SearchButton)
 		   .perform();
+		   WebElement FirstTrTariff2=driver.findElement(By.xpath("//tbody/tr/td[2]"));
+
 		   Thread.sleep(1000);
-		   String Tarrif2= FirstTrTariff.getText();
+		   String Tarrif2= FirstTrTariff2.getText();
 		   Assert.assertEquals(Tarrif2, Newtariff); 
+		   eh.highlightElement(driver,FirstTrTariff2);
 
 		      	   	   
 	   }
@@ -166,20 +176,25 @@ public class PageObject_tariff_type {
 		   
 		   Actions action = new Actions(driver);
 		   
-		   WebElement StandardizationCombo=driver.findElement(By.xpath("//tbody/tr[1]/td[3]/descendant::mat-select[@role='combobox']"));
-		   WebElement PopUp=driver.findElement(By.xpath("//div[@role='alertdialog and 'text()='عملیات با موفقیت انجام شد']"));
 
 		   action
 		   .click(SearchTariff)
 		   .sendKeys(tariff)
 		   .click(SearchButton)
-		   .click(Standardization)
+		   .click(Standardization).perform();
+		   WebElement StandardizationCombo=driver.findElement(By.xpath("//tbody/tr[1]/td[3]/descendant::mat-select[@role='combobox']"));
+		   action
 		   .click(StandardizationCombo).perform();
 		   Thread.sleep(1000);
 		   action
-		   .sendKeys(StandardTariff)
+		   .sendKeys(StandardTariff).perform();
+		   Thread.sleep(1000);
+		   action
 		   .sendKeys(Keys.ENTER)
 		   .perform();
+		   Thread.sleep(1000);
+		   WebElement PopUp=driver.findElement(By.xpath("//div[@role='alertdialog and 'text()='عملیات با موفقیت انجام شد']"));
+
 		   eh.highlightElement(driver,PopUp); 
 		   String alert=PopUp.getText();
 	       Assert.assertTrue(alert.contains("موفقیت"));
