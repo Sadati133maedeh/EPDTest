@@ -99,6 +99,8 @@ public class PageObject_center_services {
 	   .sendKeys(newservicename)
 	   .click(Save)
 	   .perform();
+	   Thread.sleep(1000);
+
 	   WebElement a= driver.findElement(By.xpath("//div[@role='alertdialog']"));
 	   eh.highlightElement(driver,a);
 	   Thread.sleep(2000);
@@ -117,12 +119,14 @@ public class PageObject_center_services {
 	   .perform();
 	   Thread.sleep(3000);
 		  driver.manage().timeouts().implicitlyWait(11, TimeUnit.SECONDS);  
-	   WebElement clippingServiceName2= driver.findElement(By.xpath("//mat-table[@role='grid']/mat-row[2]/mat-cell[4]/descendant::input"));
+	   WebElement clippingServiceName2= driver.findElement(By.xpath("//mat-table[@role='grid']/mat-row[8]/mat-cell[4]/descendant::input"));
 	   action
 	   .click(clippingServiceName2)
 	   .sendKeys(newservicename2)
 	   .click(Save)
 	   .perform();
+	   Thread.sleep(1000);
+
 	   WebElement b= driver.findElement(By.xpath("//div[@role='alertdialog']"));
 	   eh.highlightElement(driver,b);
 

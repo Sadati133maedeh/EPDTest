@@ -85,7 +85,7 @@ public class PageObject_insuranse {
 	   .sendKeys(insuranceCode)
 	   .click(SearchButtom)
 	   .perform();
-	   Thread.sleep(500);
+	   Thread.sleep(2000);
 	   WebElement checkbox=driver.findElement(By.xpath("//tbody/tr[1]/td[5]/descendant::span[1]"));
 	   action
 	   .click(checkbox).perform();
@@ -101,10 +101,13 @@ public class PageObject_insuranse {
 	   .sendKeys(insuranceCode)
 	   .click(SearchButtom)
 	   .perform();
+	   Thread.sleep(2000);
 	   WebElement FirstCodetd=driver.findElement(By.xpath("//tbody/tr[1]/td[3]"));
 
 	   AddedCode=FirstCodetd.getText();
 	   Assert.assertEquals(AddedCode, insuranceCode);
+	   eh.highlightElement(driver,FirstCodetd);
+
 	   action.click(Refresh).perform();
 		 //نمایش لیست غیر فعال
 	   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -125,7 +128,7 @@ public class PageObject_insuranse {
 	   .sendKeys(insuranceCode2)
 	   .click(SearchButtom)
 	   .perform();
-	   Thread.sleep(500);
+	   Thread.sleep(2000);
 	   WebElement checkbox2=driver.findElement(By.xpath("//tbody/tr[1]/td[5]/descendant::span[1]"));
 
 	   action
@@ -142,12 +145,16 @@ public class PageObject_insuranse {
 	   .sendKeys(insuranceCode2)
 	   .click(SearchButtom)
 	   .perform();
-	   
+	   Thread.sleep(2000);
+
 	   WebElement FirstCodetd2=driver.findElement(By.xpath("//tbody/tr[1]/td[3]"));
 	   String AddedCode2; 
 	   AddedCode2=null;
+	   Thread.sleep(1000);
 	   AddedCode2=FirstCodetd2.getText();
 	   Assert.assertEquals(AddedCode2, insuranceCode2);
+	   eh.highlightElement(driver,FirstCodetd2);
+
 	   action.click(Refresh).perform();
 		 //نمایش لیست غیر فعال
 	   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -168,8 +175,8 @@ public class PageObject_insuranse {
 	   .sendKeys(insuranceCode3)
 	   .click(SearchButtom)
 	   .perform();
-	   Thread.sleep(500);
-	   WebElement checkbox3=driver.findElement(By.xpath("//tbody/tr[1]/td[5]/descendant::input"));
+	   Thread.sleep(2000);
+	   WebElement checkbox3=driver.findElement(By.xpath("//tbody/tr[1]/td[5]/descendant::span[1]"));
 
 	   action
 	   .click(checkbox3).perform();
@@ -179,20 +186,25 @@ public class PageObject_insuranse {
 	   .perform();
 	   Thread.sleep(2000);
 	   action.click(Refresh).perform();
+	   Thread.sleep(2000);
+
 //چک اضافه شدن بیمه سوم	   
 	   action
 	   .click(SearchCode)
 	   .sendKeys(insuranceCode3)
 	   .click(SearchButtom)
 	   .perform();
-	   
+	   Thread.sleep(2000);
+
 	   WebElement FirstCodetd3=driver.findElement(By.xpath("//tbody/tr[1]/td[3]"));
 
 	   String AddedCode3; 
-
+	   AddedCode3=null;
+	   Thread.sleep(1000);
 	   AddedCode3=FirstCodetd3.getText();
 	   Assert.assertEquals(AddedCode3, insuranceCode3);   
-	   
+	   eh.highlightElement(driver,FirstCodetd3);
+
    }
  //سرچ نام بیمه
    public void SearchInsuranceName ( WebDriver driver ) throws InterruptedException {
@@ -218,8 +230,11 @@ public class PageObject_insuranse {
 	   .sendKeys(InsuranceName)
 	   .click(SearchButtom)
 	   .perform();
+	   Thread.sleep(2000);
 	   searchInsurance=FirstNametd.getText();
 	   Assert.assertEquals(InsuranceName, searchInsurance);
+	   eh.highlightElement(driver,FirstNametd);
+
 	   action.click(Refresh).perform();
 	 //نمایش لیست غیرفعال
 	   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -244,6 +259,7 @@ public class PageObject_insuranse {
 	   searchInsurance=FirstNametd.getText();
 	   Thread.sleep(1000);
 	   Assert.assertEquals(InsuranceName, searchInsurance);
+	   eh.highlightElement(driver,FirstNametd);
 	   action.click(Refresh).perform();
    }   
    //غیر فعال کردن بیمه
@@ -257,9 +273,12 @@ public class PageObject_insuranse {
 	   .perform();
 	   Thread.sleep(2000);
 	   //غیرفعال و ذخیره کردن
+	   WebElement checkbox=driver.findElement(By.xpath("//tbody/tr[1]/td[5]/descendant::span[1]"));
 	   action
 	   .click(checkbox)
-	   .click(Save)
+	   .click(Save).perform();
+	   Thread.sleep(2000);
+	   action
 	   .click(Refresh)
 	   .perform();
 	   //نمایش لیست غیر فعال ها
@@ -280,8 +299,12 @@ public class PageObject_insuranse {
 	   .sendKeys(insuranceCode)
 	   .click(SearchButtom)
 	   .perform();
+	   Thread.sleep(1000);
+	   WebElement FirstCodetd=driver.findElement(By.xpath("//tbody/tr[1]/td[3]"));
+
 	   AddedCode=FirstCodetd.getText(); 
        Assert.assertEquals(AddedCode, insuranceCode);
+	   eh.highlightElement(driver,FirstCodetd);
 
    }
  }

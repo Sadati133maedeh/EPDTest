@@ -69,6 +69,7 @@ public class PageObject_group_services {
 	   .click(Checkbox2thjarahi)
 	   .click(Save)
 	   .perform();
+	   Thread.sleep(2000);
 	   System.out.println("ali");
 	   action.click(Save).perform();
 	   System.out.println("mohsen");
