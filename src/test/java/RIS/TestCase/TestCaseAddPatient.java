@@ -28,12 +28,13 @@ public class TestCaseAddPatient {
 
 
   @Test(dataProvider="AddPersionPatient_AllFields",dataProviderClass=RIS_DataProviders.class)
-  public void f(String URL ,String UserName ,String Password ,String Name ,String Family ,String Father
+  public void f(String URL ,String UserName ,String Password ,String Name ,String Family ,String NameEn,String FamilyEn, String Father
 			 ,String Avatar,String Sex ,String Tahol ,String BirthDate ,String Mahaltavalod 
-			  ,String City ,String Phone, String TelPhone, String Adress ,String Email ,String Bime ,String Sandogh ,String BimeDate ,String Nesbat,String Meliat,String OldId,String CaseComment) throws Throwable {
+			  ,String City ,String Phone, String TelPhone,String Post, String Adress ,String Email ,String Bime ,String Sandogh ,String BimeDate ,String Nesbat,String Meliat,String OldId,String CaseComment) throws Throwable {
 	 
 	  driver.navigate().to(URL);
 	  driver.manage().window().maximize();
+	  Thread.sleep(5000);
 
 
 	  
@@ -59,12 +60,12 @@ public class TestCaseAddPatient {
 	  }
 	 
 	
-	 driver.findElement(By.name("NationalCode")).sendKeys(nationalCode);
+	 driver.findElement(By.xpath("//input[@formcontrolname='nationalCode']")).sendKeys(nationalCode);
 		 
  
 	 //AddPatient
 	 PageObject_RIS_AddPatient sick = PageFactory.initElements(driver, PageObject_RIS_AddPatient.class);
-	 sick.AddPersionPatient_AllFields(driver, Name, Family, Father, Avatar, Sex, Tahol, BirthDate, Mahaltavalod, City, Phone, TelPhone, Adress, Email, Bime, Sandogh, BimeDate, Nesbat, Meliat, OldId, CaseComment);
+	 sick.AddPersionPatient_AllFields(driver, Name, Family, NameEn, FamilyEn, Father, Avatar, Sex, Tahol, BirthDate, Mahaltavalod, City, Phone, TelPhone,Post, Adress, Email, Bime, Sandogh, BimeDate, Nesbat, Meliat, OldId, CaseComment);
 	 
 	 
 	 
@@ -102,7 +103,7 @@ public class TestCaseAddPatient {
   }
 	   @AfterMethod
   public void afterMethod() {
-		driver.quit();
+	//	driver.quit();
 	  
   }
 
