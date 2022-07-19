@@ -41,10 +41,22 @@ public class RIS_DataProviders {
 		return myEntries.iterator();
 	}
 	
-	@DataProvider(name = "AddPationesForeign")
-	public Iterator<Object[]> AddPationesForeign() throws IOException{
+	@DataProvider(name = "AddPatientForeign_Free")
+	public Iterator<Object[]> AddPatientForeign_Free() throws IOException{
 		CSVReader reader = new CSVReader(
-				new FileReader("./src/test/resources/data/CSVFiles_CIS/AddPationesForeign.csv"),',','\'',1);
+				new FileReader("./src/test/resources/data/CSVFiles_RIS/AddPatientForeign_Free.csv"),',','\'',1);
+		List<Object[]> myEntries = new ArrayList<Object[]>();
+		String[] nextLine;
+		while ((nextLine=reader.readNext())!=null) {
+			myEntries.add(nextLine);
+		}
+		reader.close();
+		return myEntries.iterator();
+	}
+	@DataProvider(name = "AddPersionPatient_bornOutOfIranAndFree")
+	public Iterator<Object[]> AddPersionPatient_bornOutOfIranAndFree() throws IOException{
+		CSVReader reader = new CSVReader(
+				new FileReader("./src/test/resources/data/CSVFiles_RIS/AddPersionPatient_bornOutOfIranAndFree.csv"),',','\'',1);
 		List<Object[]> myEntries = new ArrayList<Object[]>();
 		String[] nextLine;
 		while ((nextLine=reader.readNext())!=null) {
@@ -54,6 +66,7 @@ public class RIS_DataProviders {
 		return myEntries.iterator();
 	}
 	
+
 	@DataProvider(name = "AdmitData")
 	public Iterator<Object[]> AdmitData() throws IOException{
 		CSVReader reader = new CSVReader(

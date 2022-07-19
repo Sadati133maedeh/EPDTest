@@ -208,7 +208,6 @@ public class PageObject_RIS_AddPatient {
     		  //clear city
     		  Thread.sleep(500);
     		  action.click(CLEARCITY).perform();
-    		  //action.sendKeys(City).perform();
     	      Thread.sleep(500);
 
 		 	  
@@ -319,8 +318,6 @@ public class PageObject_RIS_AddPatient {
     	      eh.unhighlightLast(driver, SABT);
     		  Thread.sleep(1000);
     		  action.click(SABT).perform();
-    		  action.click(SABT).perform();
-    		  //SABT.click();
     	      Thread.sleep(1000);
     	      
     	      //SuccecfulAddMessage
@@ -333,9 +330,127 @@ public class PageObject_RIS_AddPatient {
     	      		+ "x");
           		   } 
 	   
-	   public void AddPatientForeign (WebDriver driver, String Name ,String Family ,String Father
-				 ,String Avatar,String Sex ,String TAHOL ,String BIRTHDATE ,String Mahaltavalod 
-				  ,String City ,String Adress ,String Email ,String BIME ,String BIMEDATE ,String NESBAT ,String OLDID) throws Throwable {
+	   public void AddPersionPatient_bornOutOfIranAndFree (WebDriver driver, String Name ,String Family ,String NameEn,String FamilyEn,String Father,String Avatar,String Sex ,String Tahol ,String BirthDate ,String Mahaltavalod 
+				  ,String City ,String Phone, String TelPhone, String Post,String Adress ,String Email ,String Bime ,String Sandogh ,String BimeDate ,String Nesbat,String Meliat,String OldId,String CaseComment) throws Throwable {
+		   
+			 Actions action = new Actions(driver);
+
+		     //name
+		     eh.highlightElement(driver, NAME);
+		     action.click(NAME).perform();
+		     action.sendKeys(Name).perform();
+			 Thread.sleep(500);
+			 eh.unhighlightLastB(driver, NAME);
+			 
+          //family
+		     eh.highlightElement(driver, FAMILY);
+		     action.click(FAMILY).perform();
+			 action.sendKeys(Family).perform();
+			 Thread.sleep(500);
+			 eh.unhighlightLastB(driver, FAMILY);
+			 
+		   
+
+			 
+          //father name
+		     eh.highlightElement(driver, FATHER);
+		     action.click(FATHER).perform();
+			 action.sendKeys(Father).perform();
+		     Thread.sleep(2000);
+			 eh.unhighlightLastB(driver, FATHER);
+			 
+
+			 
+
+           //sex
+			  eh.highlightElement(driver, SEX);
+			  action.click(SEX).perform();
+			  SEX.sendKeys(Sex);
+			 // action.sendKeys(Sex).perform();
+			  eh.unhighlightLast(driver, SEX);
+ 	      Thread.sleep(500);
+
+			//TAHOL
+		      eh.highlightElement(driver, TAHOL);
+		      Thread.sleep(500);
+		      action.click(TAHOL).perform();
+		      action.sendKeys(Tahol).perform();
+ 		  eh.unhighlightLast(driver, TAHOL);
+ 	      Thread.sleep(500);
+
+
+			  //tarikh tavalod
+			  eh.highlightElement(driver, BIRTHDATE);
+			  Thread.sleep(500);
+			  BIRTHDATE.sendKeys(BirthDate);
+		      eh.unhighlightLast(driver, BIRTHDATE);
+		      
+		      //mahal tavalod Out Check
+		      Thread.sleep(500);
+		      action.click(OutOfIranBirthPlaceCheckBox).perform();
+
+		      
+		      //mahal tavalod
+		      eh.highlightElement(driver, BIRTHPLACE);
+		      Thread.sleep(500);
+		      action.click(BIRTHPLACE).perform();
+		      action.sendKeys(Mahaltavalod).perform();
+		 	  eh.unhighlightLast(driver, BIRTHPLACE);
+		 	  		 	  
+		 	      		  
+ 		  //city
+ 		  eh.highlightElement(driver, CITY);
+ 	      CITY.click();
+ 	      CITY.clear();
+ 		  Thread.sleep(1000);
+ 		  CITY.click();
+ 		  Thread.sleep(500);
+ 		  action.click(CITY).perform();
+ 		  action.sendKeys(City).perform();
+ 	      eh.unhighlightLast(driver, CITY);
+ 	      Thread.sleep(500);
+
+ 	      
+ 	      //Phone
+ 	      int x= (int)(Math.random()*100000000);
+ 	     // WebElement PHONE= driver.findElement(By.name("telNo"));
+ 	      eh.highlightElement(driver, PHONE);
+ 	      Thread.sleep(500);
+ 	      PHONE.sendKeys("0935"+x);
+ 	      eh.unhighlightLastB(driver, PHONE);
+ 	      
+ 	    
+
+ 	      //Bime
+ 	      eh.highlightElement(driver, BIME);
+ 	      Thread.sleep(500);
+ 	      action.click(BIME).perform();
+ 	      action.sendKeys(Bime).perform();
+ 	      eh.unhighlightLast(driver, BIME);
+ 	      
+ 	     
+
+ 	      //Sabt
+ 	      eh.highlightElement(driver, SABT);
+ 	      Thread.sleep(500);
+ 	      eh.unhighlightLast(driver, SABT);
+ 		  Thread.sleep(1000);
+ 		  action.click(SABT).perform();
+ 	      Thread.sleep(1000);
+ 	      
+ 	      //SuccecfulAddMessage
+ 	      WebElement POPUP= driver.findElement(By.xpath("/html/body/div[2]/div/div/snack-bar-container"));
+ 	      eh.highlightElement(driver, POPUP);
+ 	      Thread.sleep(1000);
+ 	      String c= POPUP.getText();
+ 	      System.out.print("resulte:"+ c);
+ 	      Assert.assertEquals(c, "پرونده بیمار با موفقیت ثبت شد.\n"
+ 	      		+ "x");
+       		   } 
+
+	   
+	   public void AddPatientForeign_Free (WebDriver driver, String Name ,String Family ,String NameEn,String FamilyEn,String Father,String Avatar,String Passport,String Sex ,String Tahol ,String BirthDate ,String Mahaltavalod 
+				  ,String City ,String Phone, String TelPhone, String Post,String Adress ,String Email ,String Bime ,String Sandogh ,String BimeDate ,String Nesbat,String Meliat,String OldId,String CaseComment) throws Throwable {
 		   
 			 Actions action = new Actions(driver);
 
@@ -360,35 +475,56 @@ public class PageObject_RIS_AddPatient {
 		     Thread.sleep(2000);
 			 eh.unhighlightLastB(driver, FATHER);
 			 
+//             //Clear Meliat
+//		     action.click(ClearMeliat).perform();
+//		     Thread.sleep(2000);
+//
+//             //Meliat
+//		     eh.highlightElement(driver, MELIAT);
+//		     action.click(MELIAT).perform();
+//			 action.sendKeys(Meliat).perform();
+//		     Thread.sleep(2000);
+//			 eh.unhighlightLastB(driver, MELIAT);
+
 
 			  //Avatar
 			  WebElement upload_file = driver.findElement(By.xpath("//*[@id=\"file\"]"));
 			  upload_file.sendKeys(Avatar);
 			  //upload_file.sendKeys("C:/Users/s.mollahasani/Desktop/CIS/mr2.png");
 			  
-              //jensiat
-			  eh.highlightElement(driver, SEX);
-			  Thread.sleep(500);
-			  action.click(SEX).perform();
-			  action.sendKeys(Sex).perform();
-			  eh.unhighlightLast(driver, SEX);
+	          //Passport
+			 WebElement PASSPORT= driver.findElement(By.xpath("//input[@formcontrolname='passportNumber']"));
+			  eh.highlightElement(driver, PASSPORT);
+			   action.click(PASSPORT).perform();
+			   action.sendKeys(Passport).perform();
+			   Thread.sleep(2000);
+			 eh.unhighlightLastB(driver, PASSPORT);
+
 			  
-			//TAHOL
-//		      eh.highlightElement(driver, TAHOL);
-//		      Thread.sleep(500);
-//		      action.click(TAHOL).perform();
-//		      action.sendKeys(TAHOL).perform();
-//    		  eh.unhighlightLast(driver, TAHOL);
-//
-//
-//			  //tarikh tavalod
-//			  eh.highlightElement(driver, BIRTHDATE);
-//			  Thread.sleep(500);
-//			  BIRTHDATE.sendKeys(BIRTHDATE);
-//		      eh.unhighlightLast(driver, BIRTHDATE);
+             //sex
+			  eh.highlightElement(driver, SEX);
+			  action.click(SEX).perform();
+			  SEX.sendKeys(Sex);
+			  eh.unhighlightLast(driver, SEX);
+   	           Thread.sleep(500);
+		   	  
+				//TAHOL
+		      eh.highlightElement(driver, TAHOL);
+		      Thread.sleep(500);
+		      action.click(TAHOL).perform();
+		      action.sendKeys(Tahol).perform();
+    		  eh.unhighlightLast(driver, TAHOL);
+    	      Thread.sleep(500);
+
+
+			  //tarikh tavalod
+			  eh.highlightElement(driver, BIRTHDATE);
+			  Thread.sleep(500);
+			  BIRTHDATE.sendKeys(BirthDate);
+		      eh.unhighlightLast(driver, BIRTHDATE);
 		      
 		      //mahal tavalod
-		    WebElement birthPlace= driver.findElement(By.name("BirthPlaceOut"));
+		      WebElement birthPlace= driver.findElement(By.xpath("//input[@formcontrolname='birthPlaceOut']"));
 		      eh.highlightElement(driver, birthPlace);
 		      Thread.sleep(500);
 		      action.click(birthPlace).perform();
@@ -396,39 +532,52 @@ public class PageObject_RIS_AddPatient {
 		 	  eh.unhighlightLast(driver, birthPlace);
 		 	  
 		 	      		  
+//    		  //clear city
+//    		  Thread.sleep(500);
+//    		  action.click(CLEARCITY).perform();
+//    	      Thread.sleep(500);
+
+		 	  
+		 	      		  
     		  //city
     		  eh.highlightElement(driver, CITY);
     		  Thread.sleep(500);
     		  action.click(CITY).perform();
+    		  CITY.clear();    		  Thread.sleep(500);
+    		  action.click(CITY).perform();
     		  action.sendKeys(City).perform();
     	      eh.unhighlightLast(driver, CITY);
-    	      
-    	      //Adress
-    	      eh.highlightElement(driver, ADRESS);
     	      Thread.sleep(500);
-    	      ADRESS.sendKeys(Adress);
-    	      eh.unhighlightLastB(driver, ADRESS);
+    	      
     	      
     	      //Phone
     	      int x= (int)(Math.random()*100000000);
-    	      WebElement PHONE= driver.findElement(By.name("telNo"));
+    	     // WebElement PHONE= driver.findElement(By.name("telNo"));
     	      eh.highlightElement(driver, PHONE);
     	      Thread.sleep(500);
     	      PHONE.sendKeys("0935"+x);
     	      eh.unhighlightLastB(driver, PHONE);
     	      
-    	      //Email
-    	      eh.highlightElement(driver, EMAIL);
-    	      Thread.sleep(500);
-    	      EMAIL.sendKeys(Email);
-    	      eh.unhighlightLastB(driver, EMAIL);
+//    	      //TelPhone
+//    	      int y= (int)(Math.random()*100000000);
+//    	      eh.highlightElement(driver, TELPHONE);
+//    	      Thread.sleep(500);
+//    	      TELPHONE.sendKeys("021"+y);
+//    	      eh.unhighlightLastB(driver, TELPHONE);
+
+    	      
+//    	      //Email
+//    	      eh.highlightElement(driver, EMAIL);
+//    	      Thread.sleep(500);
+//    	      EMAIL.sendKeys(Email);
+//    	      eh.unhighlightLastB(driver, EMAIL);
     	      
     	      //Sabt
     	      eh.highlightElement(driver, SABT);
     	      Thread.sleep(500);
     	      eh.unhighlightLast(driver, SABT);
     		  Thread.sleep(1000);
-    		  SABT.click();
+    		  action.click(SABT).perform();
     	      Thread.sleep(1000);
     	      
     	      //SuccecfulAddMessage

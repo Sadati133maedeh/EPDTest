@@ -3,6 +3,7 @@ package RIS.TestCase;
 import org.testng.annotations.Test;
 
 import RIS.Rispackage.RIS_DataProviders;
+import RIS.pageObject.PageObject_ListPatient;
 import RIS.pageObject.PageObject_RIS_AddPatient;
 import RIS.pageObject.PageObject_RIS_MainMenu;
 import cis.cispackage.element_Highlight;
@@ -70,22 +71,22 @@ public class TestCaseAddPatient {
 	 
 	 
 	 	 	
-//	 //EnterToListPatientPage
-//      menu.list_patient_menu(driver);
-//      for(String window : driver.getWindowHandles() ) {
-//		  driver.switchTo().window(window);
-//	  }
-//	  //CheckAddPatient
-//      PageObject_ListPatient CheckAdd = PageFactory.initElements(driver, PageObject_ListPatient.class);
-//      CheckAdd.Search_Patient_melicode(driver, nationalCode);
-//      
-//      WebElement Gridmelicode=  driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-patient-list/div/app-patient-search/div[2]/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td[2]"));
-//      Thread.sleep(2000);
-//      eh.highlightElement(driver, Gridmelicode);
-//      String w = Gridmelicode.getText();
-//      System.out.print("resulte:"+ w);
-//      Assert.assertEquals(nationalCode, w);
-//      Thread.sleep(2000);
+	 //EnterToListPatientPage
+      menu.list_patient_menu(driver);
+      for(String window : driver.getWindowHandles() ) {
+		  driver.switchTo().window(window);
+	  }
+	  //CheckAddPatient
+      PageObject_ListPatient CheckAdd = PageFactory.initElements(driver, PageObject_ListPatient.class);
+      CheckAdd.Search_Patient_melicode(driver, nationalCode);
+      
+      WebElement Gridmelicode=  driver.findElement(By.xpath("/html/body/app-root/div/app-cis-layout/app-patient-list/div/app-patient-search/div[2]/div/kendo-grid/div/kendo-grid-list/div/div[1]/table/tbody/tr/td[2]"));
+      Thread.sleep(2000);
+      eh.highlightElement(driver, Gridmelicode);
+      String w = Gridmelicode.getText();
+      System.out.print("resulte:"+ w);
+      Assert.assertEquals(nationalCode, w);
+      Thread.sleep(2000);
 
   }
   @BeforeMethod
